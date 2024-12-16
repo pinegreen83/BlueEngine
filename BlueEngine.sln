@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Editor_Window", "Editor_Window\Editor_Window.vcxproj", "{68E3DA83-4935-43DD-BF53-4B020F46DFC4}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BlueEditor_Window", "BlueEditor_Window\BlueEditor_Window.vcxproj", "{68E3DA83-4935-43DD-BF53-4B020F46DFC4}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BlueLibrary", "BlueLibrary\BlueLibrary.vcxproj", "{7A373685-C157-4D64-9A8C-0804ECF2FA79}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BlueSource", "BlueSource\BlueSource.vcxitems", "{0911BF3E-EBEA-4607-B992-1D73E47E7FF2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,8 +25,20 @@ Global
 		{68E3DA83-4935-43DD-BF53-4B020F46DFC4}.Release|x64.Build.0 = Release|x64
 		{68E3DA83-4935-43DD-BF53-4B020F46DFC4}.Release|x86.ActiveCfg = Release|Win32
 		{68E3DA83-4935-43DD-BF53-4B020F46DFC4}.Release|x86.Build.0 = Release|Win32
+		{7A373685-C157-4D64-9A8C-0804ECF2FA79}.Debug|x64.ActiveCfg = Debug|x64
+		{7A373685-C157-4D64-9A8C-0804ECF2FA79}.Debug|x64.Build.0 = Debug|x64
+		{7A373685-C157-4D64-9A8C-0804ECF2FA79}.Debug|x86.ActiveCfg = Debug|Win32
+		{7A373685-C157-4D64-9A8C-0804ECF2FA79}.Debug|x86.Build.0 = Debug|Win32
+		{7A373685-C157-4D64-9A8C-0804ECF2FA79}.Release|x64.ActiveCfg = Release|x64
+		{7A373685-C157-4D64-9A8C-0804ECF2FA79}.Release|x64.Build.0 = Release|x64
+		{7A373685-C157-4D64-9A8C-0804ECF2FA79}.Release|x86.ActiveCfg = Release|Win32
+		{7A373685-C157-4D64-9A8C-0804ECF2FA79}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		BlueSource\BlueSource.vcxitems*{0911bf3e-ebea-4607-b992-1d73e47e7ff2}*SharedItemsImports = 9
+		BlueSource\BlueSource.vcxitems*{7a373685-c157-4d64-9a8c-0804ecf2fa79}*SharedItemsImports = 4
 	EndGlobalSection
 EndGlobal

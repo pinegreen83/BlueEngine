@@ -7,13 +7,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Editor_Window.h" />
+    <ClInclude Include="BlueEditor_Window.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Editor_Window.rc">
+    <ResourceCompile Include="BlueEditor_Window.rc">
       <Filter>리소스 파일</Filter>
     </ResourceCompile>
   </ItemGroup>
@@ -21,7 +21,7 @@
     <Image Include="small.ico">
       <Filter>리소스 파일</Filter>
     </Image>
-    <Image Include="Editor_Window.ico">
+    <Image Include="BlueEditor_Window.ico">
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>
