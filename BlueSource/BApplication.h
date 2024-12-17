@@ -1,5 +1,6 @@
 #pragma once
-#include "CommonInclude.h"
+#include "BGameObject.h"
+#include "BGameObject2.h"
 
 namespace blue
 {
@@ -21,8 +22,9 @@ namespace blue
 		HDC mHdc;
 
 		float mSpeed;
-		float mX;
-		float mY;
+
+		GameObject mPlayer;
+		GameObject2 mPlayer2;
 	};
 }
 
