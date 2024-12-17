@@ -3,12 +3,11 @@
 
 #include "framework.h"
 #include "BlueEditor_Window.h"
-#include "CommonInclude.h"
 #include "../BlueSource/BApplication.h"
 
 //#pragma comment (lib, "../x64/Debug/BlueLibrary.lib")
 
-Application app;
+blue::Application application;
 
 #define MAX_LOADSTRING 100
 
@@ -32,7 +31,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, // 프로그램의 인스턴스 
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
 
-    app.test();
     // TODO: 여기에 코드를 입력합니다.
 
     // 전역 문자열을 초기화합니다.
@@ -76,7 +74,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, // 프로그램의 인스턴스 
             // 메세지가 없을 경우 여기서 처리
             // 게임 로직이 들어가면 된다.
 
-
+            application.Run();
         }
     }
 
@@ -137,6 +135,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
 
+   application.Initialize(hWnd);
+
    if (!hWnd)
    {
       return FALSE;
@@ -183,48 +183,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         {
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
-            // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
-
-            // 파랑 브러쉬 생성
-            HBRUSH brush = CreateSolidBrush(RGB(0, 0, 255));
-
-            // 파랑 브러쉬 DC에 선택 그리고 흰색 브러쉬 반환
-            HBRUSH oldBrush = (HBRUSH) SelectObject(hdc, brush);
-
-            // 정사각형 생성
-            Rectangle(hdc, 100, 100, 200, 200);
-
-            // 다시 흰색 원본 브러쉬 선택
-            SelectObject(hdc, oldBrush);
-
-            // 파랑 브러쉬 삭제
-            DeleteObject(brush);
-
-            // 빨간 선 생성
-            HPEN redPen = CreatePen(PS_SOLID, 2, RGB(255, 0, 0));
-
-            // 빨간 선 DC에 선택 그리고 검은색 선 반환
-            HPEN oldPen = (HPEN)SelectObject(hdc, redPen);
-
-            // 원 생성
-            Ellipse(hdc, 200, 200, 300, 300);
-
-            // 다시 검은색 원본 선 선택
-            SelectObject(hdc, oldPen);
-
-            // 빨간 선 삭제
-            DeleteObject(redPen);
-
-            // 기본으로 자주 사용되는 GDI 오브젝트를 미리 DC안에 만들어 두었는데
-            // 그 오브젝트들을 스톡 오브젝트라고 함.
-
-            HBRUSH grayBrush = (HBRUSH) GetStockObject(GRAY_BRUSH);
-            oldBrush = (HBRUSH)SelectObject(hdc, grayBrush);
-
-            Rectangle(hdc, 400, 400, 500, 500);
-
-            SelectObject(hdc, oldBrush);
-            DeleteObject(grayBrush);
 
             EndPaint(hWnd, &ps);
         }
