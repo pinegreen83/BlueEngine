@@ -1,4 +1,5 @@
 #include "BApplication.h"
+#include "BInput.h"
 
 namespace blue
 {
@@ -21,7 +22,9 @@ namespace blue
 		mHdc = GetDC(mHwnd);
 
 		mPlayer.SetPosition(0.0f, 0.0f);
-		mPlayer2.SetPosition(0.0f, 0.0f);
+		//mPlayer2.SetPosition(0.0f, 0.0f);
+
+		Input::Initialize();
 	}
 
 	void Application::Run()
@@ -33,10 +36,10 @@ namespace blue
 	
 	void Application::Update()
 	{
-        mSpeed += 0.01f;
+		Input::Update();
 
 		mPlayer.Update();
-		mPlayer2.Update();
+		//mPlayer2.Update();
 	}
 	
 	void Application::LateUpdate()
@@ -47,6 +50,6 @@ namespace blue
 	void Application::Render()
 	{
 		mPlayer.Render(mHdc);
-		mPlayer2.Render(mHdc);
+		//mPlayer2.Render(mHdc);
 	}
 }

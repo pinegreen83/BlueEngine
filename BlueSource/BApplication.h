@@ -24,7 +24,7 @@ namespace blue
 		float mSpeed;
 
 		GameObject mPlayer;
-		GameObject2 mPlayer2;
+		//GameObject2 mPlayer2;
 	};
 }
 

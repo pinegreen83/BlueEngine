@@ -1,5 +1,5 @@
 #include "BGameObject2.h"
-
+#include "BInput.h"
 
 namespace blue
 {
@@ -16,7 +16,7 @@ namespace blue
 	}
 	void GameObject2::Update()
 	{
-		if (GetAsyncKeyState('A') & 0x8000)
+		if (Input::GetKeyPressed(eKeyCode::A))
 		{
 			mX -= 0.01f;
 		}
