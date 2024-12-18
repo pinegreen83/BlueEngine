@@ -16,7 +16,7 @@ namespace blue
 	}
 	void GameObject2::Update()
 	{
-		if (Input::GetKeyPressed(eKeyCode::A))
+		if (Input::GetKey(eKeyCode::A))
 		{
 			mX -= 0.01f;
 		}
