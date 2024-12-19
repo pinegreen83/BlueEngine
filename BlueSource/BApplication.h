@@ -18,6 +18,13 @@ namespace blue
 		void Render();
 
 	private:
+		void clearRenderTarget();
+		void copyRenderTarget(HDC source, HDC dest);
+		void adjjustWindowRect(HWND hwnd, UINT width, UINT height);
+		void createBuffer(UINT width, UINT height);
+		void initializeEtc();
+
+	private:
 		HWND mHwnd;
 		HDC mHdc;
 
@@ -26,9 +33,6 @@ namespace blue
 
 		UINT mWidth;
 		UINT mHeight;
-
-		GameObject mPlayer;
-		//GameObject2 mPlayer2;
 	};
 }
 

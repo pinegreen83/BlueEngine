@@ -1,2 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" />
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Scenes">
+      <UniqueIdentifier>{53daec8b-b1ce-4557-a163-ca06fb2615cc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BLoadScenes.h">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="BPlayScene.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BPlayScene.h" />
+  </ItemGroup>
+</Project>

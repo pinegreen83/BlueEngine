@@ -4,6 +4,7 @@
 #include "framework.h"
 #include "BlueEditor_Window.h"
 #include "../BlueSource/BApplication.h"
+#include "../BlueLibrary/BLoadScenes.h"
 
 //#pragma comment (lib, "../x64/Debug/BlueLibrary.lib")
 
@@ -146,6 +147,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+
+   //load Scenes
+   blue::LoadScenes();
 
    return TRUE;
 }
