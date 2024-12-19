@@ -15,23 +15,29 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)BApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)BComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BGameObject2.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BInput.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BSceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)BSpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BTime.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)BTransform.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)BApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)BComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BGameObject2.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BInput.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BSceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)BSpriteRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BTime.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)BTransform.cpp" />
   </ItemGroup>
 </Project>
