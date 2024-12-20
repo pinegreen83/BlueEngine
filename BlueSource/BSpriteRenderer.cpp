@@ -5,6 +5,9 @@
 namespace blue
 {
 	SpriteRenderer::SpriteRenderer()
+		: mImage(nullptr)
+		, mWidth(0)
+		, mHeight(0)
 	{
 
 	}
@@ -31,18 +34,17 @@ namespace blue
 
 	void SpriteRenderer::Render(HDC hdc)
 	{
-		HBRUSH blueBrush = CreateSolidBrush(RGB(255, 0, 255));
-		HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, blueBrush);
-
-		HPEN redPen = CreatePen(PS_SOLID, 2, RGB(255, 0, 0));
-		HPEN oldPen = (HPEN)SelectObject(hdc, redPen);
-		SelectObject(hdc, oldPen);
-
 		Transform* tr = GetOwner()->GetComponent<Transform>();
-		Rectangle(hdc, tr->GetX(), tr->GetY(), 100 + tr->GetX(), 100 + tr->GetY());
+		Vector2 pos = tr->GetPosition();
 
-		SelectObject(hdc, oldBrush);
-		DeleteObject(blueBrush);
-		DeleteObject(redPen);
+		Gdiplus::Graphics graphics(hdc);
+		graphics.DrawImage(mImage, Gdiplus::Rect(pos.x, pos.y, mWidth, mHeight));
+	}
+
+	void SpriteRenderer::ImageLoad(const std::wstring& path)
+	{
+		mImage = Gdiplus::Image::FromFile(path.c_str());
+		mWidth = mImage->GetWidth();
+		mHeight = mImage->GetHeight();
 	}
 }

@@ -20,6 +20,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)BGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BGameObject2.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)BMath.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)BResource.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)BResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BSpriteRenderer.h" />
@@ -34,6 +37,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)BGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BGameObject2.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)BMath.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)BResource.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)BResources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BSpriteRenderer.cpp" />
