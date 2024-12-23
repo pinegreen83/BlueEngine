@@ -19,7 +19,11 @@ namespace blue
 		virtual void OnEnter();
 		virtual void OnExit();
 
-		void AddGameObject(GameObject* gameObj, eLayerType type);
+		void AddGameObject(GameObject* gameObj, const enums::eLayerType type);
+		Layer* GetLayer(const enums::eLayerType type) { return mLayers[(UINT)type]; }
+
+	private:
+		void createLayers();
 
 	private:
 		std::vector<Layer*> mLayers;

@@ -1,6 +1,6 @@
 #pragma once
 
-namespace blue
+namespace blue::enums
 {
 	enum class eLayerType
 	{

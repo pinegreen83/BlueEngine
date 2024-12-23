@@ -22,6 +22,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)BInput.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BMath.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)BObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BScene.h" />

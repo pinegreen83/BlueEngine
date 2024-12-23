@@ -1,12 +1,13 @@
 #include "BGameObject.h"
 #include "BInput.h"
 #include "BTime.h"
+#include "BTransform.h"
 
 namespace blue
 {
 	GameObject::GameObject()
 	{
-	
+		initializeTransform();
 	}
 
 	GameObject::~GameObject()
@@ -48,5 +49,10 @@ namespace blue
 		{
 			comp->Render(hdc);
 		}
+	}
+
+	void GameObject::initializeTransform()
+	{
+		AddComponent<Transform>();
 	}
 }

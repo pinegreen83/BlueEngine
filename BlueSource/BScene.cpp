@@ -5,13 +5,7 @@ namespace blue
 	Scene::Scene()
 		: mLayers{}
 	{
-		mLayers.resize((UINT)eLayerType::Max);
-		for (size_t i = 0; i < (UINT)eLayerType::Max; i++)
-		{
-			mLayers[i] = new Layer();
-		}
-
-		int a = 0;
+		createLayers();
 	}
 
 	Scene::~Scene()
@@ -64,9 +58,18 @@ namespace blue
 		}
 	}
 
-	void Scene::AddGameObject(GameObject* gameObj, eLayerType type)
+	void Scene::AddGameObject(GameObject* gameObj, const enums::eLayerType type)
 	{
 		mLayers[(UINT)type]->AddGameObject(gameObj);
+	}
+
+	void Scene::createLayers()
+	{
+		mLayers.resize((UINT)enums::eLayerType::Max);
+		for (size_t i = 0; i < (UINT)enums::eLayerType::Max; i++)
+		{
+			mLayers[i] = new Layer();
+		}
 	}
 
 	void Scene::OnEnter()
