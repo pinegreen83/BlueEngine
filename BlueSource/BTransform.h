@@ -4,12 +4,6 @@
 
 namespace blue
 {
-	struct Pos
-	{
-		int mX;
-		int mY;
-	};
-
 	using namespace math;
 	class Transform : public Component
 	{

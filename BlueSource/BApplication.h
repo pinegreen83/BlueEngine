@@ -1,6 +1,5 @@
 #pragma once
 #include "BGameObject.h"
-#include "BGameObject2.h"
 
 namespace blue
 {

@@ -4,16 +4,33 @@
     <Filter Include="Scenes">
       <UniqueIdentifier>{53daec8b-b1ce-4557-a163-ca06fb2615cc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Contents">
+      <UniqueIdentifier>{923833d8-4a74-46ce-8b9f-2515e39acc40}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BLoadScenes.h">
       <Filter>Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="BPlayScene.cpp" />
-    <ClCompile Include="BPlayer.cpp" />
+    <ClCompile Include="BPlayScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="BTItleScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="BPlayer.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BPlayScene.h" />
-    <ClInclude Include="BPlayer.h" />
+    <ClInclude Include="BPlayScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="BTItleScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="BPlayer.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

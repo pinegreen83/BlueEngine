@@ -47,7 +47,7 @@ namespace blue
 	
 	void Application::LateUpdate()
 	{
-
+		SceneManager::LateUpdate();
 	}
 
 	void Application::Render()
