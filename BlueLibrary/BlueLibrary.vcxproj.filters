@@ -32,5 +32,8 @@
     <ClInclude Include="BPlayer.h">
       <Filter>Contents</Filter>
     </ClInclude>
+    <ClInclude Include="BLoadResources.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

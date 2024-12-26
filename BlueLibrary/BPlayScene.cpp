@@ -7,6 +7,8 @@
 #include "BTItleScene.h"
 #include "BSceneManager.h"
 #include "BObject.h"
+#include "BTexture.h"
+#include "BResources.h"
 
 namespace blue
 {
@@ -22,22 +24,13 @@ namespace blue
 
 	void PlayScene::Initialize()
 	{
-		{
-			//bg = new Player();
-			//Transform* tr = bg->AddComponent<Transform>();
-			//tr->SetPos(Vector2(0,0));
-			//tr->SetName(L"TR");
+		bg = object::Instantiate<Player>(enums::eLayerType::BackGround, Vector2(100.0f, 100.0f));
+		SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
 
-			//SpriteRenderer* sr
-			//	= bg->AddComponent<SpriteRenderer>();
-			//sr->SetName(L"SR");
-			//sr->ImageLoad(L"../Resources/CygnusGarden.png");
-			//AddGameObject(bg, enums::eLayerType::BackGround);
+		graphics::Texture* bg = Resources::Find<graphics::Texture>(L"BG");
+		sr->SetTexture(bg);
 
-			bg = object::Instantiate<Player>(enums::eLayerType::BackGround, Vector2(100.0f, 100.0f));
-			SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
-			sr->ImageLoad(L"../Resources/CygnusGarden.png");
-		}
+		Scene::Initialize();
 	}
 
 	void PlayScene::Update()

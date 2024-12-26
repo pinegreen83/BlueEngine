@@ -1,13 +1,14 @@
 #include "BSpriteRenderer.h"
 #include "BGameObject.h"
 #include "BTransform.h"
+#include "BTexture.h"
 
 namespace blue
 {
 	SpriteRenderer::SpriteRenderer()
-		: mImage(nullptr)
-		, mWidth(0)
-		, mHeight(0)
+		: Component()
+		, mTexture(nullptr)
+		, mSize(Vector2::One)
 	{
 
 	}
@@ -34,17 +35,25 @@ namespace blue
 
 	void SpriteRenderer::Render(HDC hdc)
 	{
+		if (mTexture == nullptr)
+			assert(false);
+
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
 
-		Gdiplus::Graphics graphics(hdc);
-		graphics.DrawImage(mImage, Gdiplus::Rect(pos.x, pos.y, mWidth, mHeight));
-	}
-
-	void SpriteRenderer::ImageLoad(const std::wstring& path)
-	{
-		mImage = Gdiplus::Image::FromFile(path.c_str());
-		mWidth = mImage->GetWidth();
-		mHeight = mImage->GetHeight();
+		if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Bmp)
+		{
+			TransparentBlt(hdc, pos.x, pos.y
+				, mTexture->GetWidth() * mSize.x, mTexture->GetHeight() * mSize.y
+				, mTexture->GetHdc(), 0, 0, mTexture->GetWidth(), mTexture->GetHeight()
+				, RGB(255, 0, 255));
+		}
+		else if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Png)
+		{
+			Gdiplus::Graphics graphics(hdc);
+			graphics.DrawImage(mTexture->GetImage()
+				, Gdiplus::Rect(pos.x, pos.y, mTexture->GetWidth() * mSize.x, mTexture->GetHeight() * mSize.y)
+			);
+		}
 	}
 }

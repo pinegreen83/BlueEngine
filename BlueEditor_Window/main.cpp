@@ -4,6 +4,7 @@
 #include "framework.h"
 #include "BlueEditor_Window.h"
 #include "../BlueSource/BApplication.h"
+#include "../BlueLibrary/BLoadResources.h"
 #include "../BlueLibrary/BLoadScenes.h"
 
 //#pragma comment (lib, "../x64/Debug/BlueLibrary.lib")
@@ -147,6 +148,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
 
    //load Scenes
+   blue::LoadResources();
    blue::LoadScenes();
 
    return TRUE;

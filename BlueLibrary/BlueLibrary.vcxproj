@@ -138,6 +138,7 @@
     <ClCompile Include="BTItleScene.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BLoadResources.h" />
     <ClInclude Include="BPlayer.h" />
     <ClInclude Include="BPlayScene.h" />
     <ClInclude Include="BTItleScene.h" />
