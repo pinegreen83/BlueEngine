@@ -27,6 +27,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)BResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BSceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)BScript.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BSpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BTexture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BTime.h" />
@@ -45,6 +46,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)BResources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BSceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)BScript.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BSpriteRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BTexture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BTime.cpp" />

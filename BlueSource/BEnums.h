@@ -2,6 +2,14 @@
 
 namespace blue::enums
 {
+	enum class eComponentType
+	{
+		Transform,
+		SpriteRenderer,
+		Script,
+		End,
+	};
+
 	enum class eLayerType
 	{
 		None,
@@ -15,8 +23,6 @@ namespace blue::enums
 	enum class eResourceType
 	{	
 		Texture,
-		//Mesh,
-		//Shader,
 		AudioClip,
 		Prefab,
 		End,

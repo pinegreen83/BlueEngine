@@ -7,6 +7,9 @@
     <Filter Include="Contents">
       <UniqueIdentifier>{923833d8-4a74-46ce-8b9f-2515e39acc40}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scripts">
+      <UniqueIdentifier>{3f982022-3347-439f-913d-7f0604b0729a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BLoadScenes.h">
@@ -21,6 +24,9 @@
     <ClCompile Include="BPlayer.cpp">
       <Filter>Contents</Filter>
     </ClCompile>
+    <ClCompile Include="BPlayerScript.cpp">
+      <Filter>Scripts</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BPlayScene.h">
@@ -34,6 +40,9 @@
     </ClInclude>
     <ClInclude Include="BLoadResources.h">
       <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="BPlayerScript.h">
+      <Filter>Scripts</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -7,6 +7,7 @@ namespace blue
 {
 	GameObject::GameObject()
 	{
+		mComponents.resize((UINT)enums::eComponentType::End);
 		initializeTransform();
 	}
 
@@ -14,7 +15,9 @@ namespace blue
 	{
 		for (Component* comp : mComponents)
 		{
-			delete comp;
+			if (comp == nullptr)
+				continue;
+
 			comp = nullptr;
 		}
 	}
@@ -23,6 +26,9 @@ namespace blue
 	{
 		for (Component* comp : mComponents)
 		{
+			if (comp == nullptr)
+				continue;
+
 			comp->Initialize();
 		}
 	}
@@ -31,6 +37,9 @@ namespace blue
 	{
 		for (Component* comp : mComponents)
 		{
+			if (comp == nullptr)
+				continue;
+
 			comp->Update();
 		}
 	}
@@ -39,6 +48,9 @@ namespace blue
 	{
 		for (Component* comp : mComponents)
 		{
+			if (comp == nullptr)
+				continue;
+
 			comp->LateUpdate();
 		}
 	}
@@ -47,6 +59,9 @@ namespace blue
 	{
 		for (Component* comp : mComponents)
 		{
+			if (comp == nullptr)
+				continue;
+
 			comp->Render(hdc);
 		}
 	}

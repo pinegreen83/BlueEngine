@@ -134,12 +134,14 @@
   <ItemGroup>
     <ClCompile Include="BLoadScenes.h" />
     <ClCompile Include="BPlayer.cpp" />
+    <ClCompile Include="BPlayerScript.cpp" />
     <ClCompile Include="BPlayScene.cpp" />
     <ClCompile Include="BTItleScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BLoadResources.h" />
     <ClInclude Include="BPlayer.h" />
+    <ClInclude Include="BPlayerScript.h" />
     <ClInclude Include="BPlayScene.h" />
     <ClInclude Include="BTItleScene.h" />
   </ItemGroup>

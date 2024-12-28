@@ -3,6 +3,7 @@
 namespace blue
 {
 	Transform::Transform()
+		: Component(enums::eComponentType::Transform)
 	{
 
 	}

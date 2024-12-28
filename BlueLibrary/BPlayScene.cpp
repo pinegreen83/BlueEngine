@@ -9,6 +9,7 @@
 #include "BObject.h"
 #include "BTexture.h"
 #include "BResources.h"
+#include "BPlayerScript.h"
 
 namespace blue
 {
@@ -24,11 +25,12 @@ namespace blue
 
 	void PlayScene::Initialize()
 	{
-		bg = object::Instantiate<Player>(enums::eLayerType::BackGround, Vector2(100.0f, 100.0f));
+		bg = object::Instantiate<Player>(enums::eLayerType::BackGround);
 		SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
+		bg->AddComponent<PlayerScript>();
 
-		graphics::Texture* bg = Resources::Find<graphics::Texture>(L"BG");
-		sr->SetTexture(bg);
+		graphics::Texture* bgtex = Resources::Find<graphics::Texture>(L"BG");
+		sr->SetTexture(bgtex);
 
 		Scene::Initialize();
 	}
@@ -62,7 +64,5 @@ namespace blue
 
 	void PlayScene::OnExit()
 	{
-		//Transform* tr = bg->GetComponent<Transform>();
-		//tr->SetPosition(Vector2(0, 0));
 	}
 }
