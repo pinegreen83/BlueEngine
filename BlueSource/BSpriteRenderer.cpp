@@ -2,6 +2,7 @@
 #include "BGameObject.h"
 #include "BTransform.h"
 #include "BTexture.h"
+#include "BRenderer.h"
 
 namespace blue
 {
@@ -40,6 +41,7 @@ namespace blue
 
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
+		pos = renderer::mainCamera->CalculatePosition(pos);
 
 		if (mTexture->GetTextureType() == graphics::Texture::eTextureType::Bmp)
 		{

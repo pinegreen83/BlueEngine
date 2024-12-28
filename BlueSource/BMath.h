@@ -1,5 +1,3 @@
-#pragma once
-
 namespace blue::math
 {
 	struct Vector2
@@ -22,6 +20,21 @@ namespace blue::math
 			, y(_y)
 		{
 
+		}
+
+		Vector2 operator+(const Vector2& other) const
+		{
+			return Vector2(x + other.x, y + other.y);
+		}
+
+		Vector2 operator-(const Vector2& other) const
+		{
+			return Vector2(x - other.x, y - other.y);
+		}
+		
+		Vector2 operator/(float value) const
+		{
+			return Vector2(x / value, y / value);
 		}
 	};
 }

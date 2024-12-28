@@ -7,6 +7,7 @@ namespace blue::enums
 		Transform,
 		SpriteRenderer,
 		Script,
+		Camera,
 		End,
 	};
 

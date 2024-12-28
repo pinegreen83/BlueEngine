@@ -10,6 +10,8 @@
 #include "BTexture.h"
 #include "BResources.h"
 #include "BPlayerScript.h"
+#include "BCamera.h"
+#include "BRenderer.h"
 
 namespace blue
 {
@@ -25,12 +27,26 @@ namespace blue
 
 	void PlayScene::Initialize()
 	{
-		bg = object::Instantiate<Player>(enums::eLayerType::BackGround);
-		SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
-		bg->AddComponent<PlayerScript>();
+		// main camera
+		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(344.0f, 442.0f));
+		Camera* cameraComp = camera->AddComponent<Camera>();
+		renderer::mainCamera = cameraComp;
+		//camera->AddComponent<PlayerScript>();
 
-		graphics::Texture* bgtex = Resources::Find<graphics::Texture>(L"BG");
-		sr->SetTexture(bgtex);
+		mPlayer = object::Instantiate<Player>(enums::eLayerType::Player);
+		SpriteRenderer* sr = mPlayer->AddComponent<SpriteRenderer>();
+		sr->SetSize(Vector2(3.0f, 3.0f));
+		mPlayer->AddComponent<PlayerScript>();
+
+		graphics::Texture* packmanTexture = Resources::Find<graphics::Texture>(L"PackMan");
+		sr->SetTexture(packmanTexture);
+
+		GameObject* bg = object::Instantiate<GameObject>(enums::eLayerType::BackGround);
+		SpriteRenderer* bgSr = bg->AddComponent<SpriteRenderer>();
+		bgSr->SetSize(Vector2(3.0f, 3.0f));
+
+		graphics::Texture* bgTexture = Resources::Find<graphics::Texture>(L"Map");
+		bgSr->SetTexture(bgTexture);
 
 		Scene::Initialize();
 	}
@@ -53,8 +69,8 @@ namespace blue
 	void PlayScene::Render(HDC hdc)
 	{
 		Scene::Render(hdc);
-		wchar_t str[50] = L"Play Scene";
-		TextOut(hdc, 0, 0, str, 10);
+		//wchar_t str[50] = L"Play Scene";
+		//TextOut(hdc, 0, 0, str, 10);
 	}
 
 	void PlayScene::OnEnter()
