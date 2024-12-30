@@ -1,6 +1,8 @@
 #pragma once
 #include "CommonInclude.h"
 
+using namespace blue::math;
+
 namespace blue
 {
 	class Entity

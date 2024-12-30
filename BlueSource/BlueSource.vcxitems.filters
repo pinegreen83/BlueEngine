@@ -10,9 +10,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)BScene.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)BComponent.cpp">
-      <Filter>Component</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)BEntity.cpp">
       <Filter>Common</Filter>
     </ClCompile>
@@ -55,6 +52,13 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)BRenderer.cpp">
       <Filter>Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)BComponent.cpp">
+      <Filter>Component\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)BAnimator.cpp">
+      <Filter>Component\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)BAnimation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)BGameObject.h">
@@ -65,9 +69,6 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)BScene.h">
       <Filter>Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)BComponent.h">
-      <Filter>Component</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h">
       <Filter>Common</Filter>
@@ -120,6 +121,13 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)BRenderer.h">
       <Filter>Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)BComponent.h">
+      <Filter>Component\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)BAnimator.h">
+      <Filter>Component\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)BAnimation.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="GameObject">
@@ -163,6 +171,9 @@
     </Filter>
     <Filter Include="Renderer">
       <UniqueIdentifier>{ec70e7b2-50cf-4a48-99ee-8145398a1f92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Component">
+      <UniqueIdentifier>{39b7aae2-1695-409f-b958-d6b001ee2c8d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

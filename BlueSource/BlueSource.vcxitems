@@ -14,6 +14,8 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)BAnimation.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)BAnimator.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BApplication.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BCamera.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BComponent.h" />
@@ -37,6 +39,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)BAnimation.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)BAnimator.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BApplication.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BCamera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BComponent.cpp" />

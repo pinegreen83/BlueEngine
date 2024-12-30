@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="blue::PlayScene" Collapsed="true">
+    <Position X="14.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAACAAAAAQAAAAAAIAAACAAQAAAAAJAAAAAAAAA=</HashCode>
+      <FileName>BPlayScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="blue::TItleScene" Collapsed="true">
+    <Position X="17" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAYAAAAAAIIAAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>BTItleScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="blue::Player" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAQAAAAAAIAAAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>BPlayer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="blue::PlayerScript" Collapsed="true">
+    <Position X="10.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAABAAAQAAAAAAIAAAAAAAgAAAABAAAAAAAAA=</HashCode>
+      <FileName>BPlayerScript.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="blue::Application" Collapsed="true">
+    <Position X="19.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAQABAABQFAQAAgKQBACAACAAAAABEAAEQAAAI=</HashCode>
+      <FileName>C:\Users\imdanu\OneDrive\바탕 화면\Workspace\GameEngine\BlueEngine\BlueSource\BApplication.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="blue::Camera" Collapsed="true">
+    <Position X="8" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQCAAAAAAAAAQBAQAAAIAAAQAAACAAAABAAABAAACA=</HashCode>
+      <FileName>C:\Users\imdanu\OneDrive\바탕 화면\Workspace\GameEngine\BlueEngine\BlueSource\BCamera.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="blue::GameObject" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABQAAAAAAAAIAQAAAoAAJAAAAAAAAAAAABAAAAIAAAA=</HashCode>
+      <FileName>C:\Users\imdanu\OneDrive\바탕 화면\Workspace\GameEngine\BlueEngine\BlueSource\BGameObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="blue::Component" Collapsed="true">
+    <Position X="6.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQgAAAIAIAAAQAAAAAAIBAAAAAAAAEAABBCAAAAAAA=</HashCode>
+      <FileName>C:\Users\imdanu\OneDrive\바탕 화면\Workspace\GameEngine\BlueEngine\BlueSource\BComponent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="blue::Entity" Collapsed="true">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAgAQAAABAA=</HashCode>
+      <FileName>C:\Users\imdanu\OneDrive\바탕 화면\Workspace\GameEngine\BlueEngine\BlueSource\BEntity.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="blue::Input" Collapsed="true">
+    <Position X="21.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAIAAAAAgAAQACCEAAAAwAKAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\imdanu\OneDrive\바탕 화면\Workspace\GameEngine\BlueEngine\BlueSource\BInput.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="blue::Layer" Collapsed="true">
+    <Position X="1.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AARAAAQAAIAAAQAAAAAAIAAAAAAAAAAEABAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\imdanu\OneDrive\바탕 화면\Workspace\GameEngine\BlueEngine\BlueSource\BLayer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="blue::Resource" Collapsed="true">
+    <Position X="12.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAIAAAAAAAAAAIABAAAAACIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\imdanu\OneDrive\바탕 화면\Workspace\GameEngine\BlueEngine\BlueSource\BResource.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="blue::Resources" Collapsed="true">
+    <Position X="23" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAIAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\imdanu\OneDrive\바탕 화면\Workspace\GameEngine\BlueEngine\BlueSource\BResources.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="blue::Scene" Collapsed="true">
+    <Position X="15.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AARAAAAAAEAAAQAAgAAAIAAAQAAQAAAABJAAAAAAAAA=</HashCode>
+      <FileName>C:\Users\imdanu\OneDrive\바탕 화면\Workspace\GameEngine\BlueEngine\BlueSource\BScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="blue::SceneManager" Collapsed="true">
+    <Position X="19.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAQAAAAAQAAAABAKAAAAAAAAAgAABAAACAAAAA=</HashCode>
+      <FileName>C:\Users\imdanu\OneDrive\바탕 화면\Workspace\GameEngine\BlueEngine\BlueSource\BSceneManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="blue::Script" Collapsed="true">
+    <Position X="10.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAQAAAAAAIAAAAAAAAAAAABAAAAAhAAA=</HashCode>
+      <FileName>C:\Users\imdanu\OneDrive\바탕 화면\Workspace\GameEngine\BlueEngine\BlueSource\BScript.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="blue::SpriteRenderer" Collapsed="true">
+    <Position X="3.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIQQAAAAAAAAAQBAAAAIIAAAACAAAAAAABAAAAAAIAA=</HashCode>
+      <FileName>C:\Users\imdanu\OneDrive\바탕 화면\Workspace\GameEngine\BlueEngine\BlueSource\BSpriteRenderer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="blue::Time" Collapsed="true">
+    <Position X="21.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAESABAAAAAAAAAAAAAAACABAAAAEAAAA=</HashCode>
+      <FileName>C:\Users\imdanu\OneDrive\바탕 화면\Workspace\GameEngine\BlueEngine\BlueSource\BTime.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="blue::Transform" Collapsed="true">
+    <Position X="5.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAQAAAAAAIAQAAAAAAgAAABAAAAAAAoA=</HashCode>
+      <FileName>C:\Users\imdanu\OneDrive\바탕 화면\Workspace\GameEngine\BlueEngine\BlueSource\BTransform.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="blue::graphics::Texture" Collapsed="true">
+    <Position X="12.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAgAAQAAAAhAAAAAAAABBQABAEAAAAAAIAAEQAAAI=</HashCode>
+      <FileName>C:\Users\imdanu\OneDrive\바탕 화면\Workspace\GameEngine\BlueEngine\BlueSource\BTexture.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="blue::math::Vector2" Collapsed="true">
+    <Position X="19.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAQAAAAAAAABgAAAAAIA=</HashCode>
+      <FileName>C:\Users\imdanu\OneDrive\바탕 화면\Workspace\GameEngine\BlueEngine\BlueSource\BMath.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="blue::eKeyState" Collapsed="true">
+    <Position X="23" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEEAAI=</HashCode>
+      <FileName>C:\Users\imdanu\OneDrive\바탕 화면\Workspace\GameEngine\BlueEngine\BlueSource\BInput.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="blue::eKeyCode" Collapsed="true">
+    <Position X="21.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAIAAAAAAAAAAAAAAAAAAAAAAAAACACAvv//YQM=</HashCode>
+      <FileName>C:\Users\imdanu\OneDrive\바탕 화면\Workspace\GameEngine\BlueEngine\BlueSource\BInput.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="blue::enums::eComponentType" Collapsed="true">
+    <Position X="19.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAgIAA=</HashCode>
+      <FileName>C:\Users\imdanu\OneDrive\바탕 화면\Workspace\GameEngine\BlueEngine\BlueSource\BEnums.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="blue::enums::eLayerType" Collapsed="true">
+    <Position X="19.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAgAAAAAAAAAAAAAAAAAQEAAAA=</HashCode>
+      <FileName>C:\Users\imdanu\OneDrive\바탕 화면\Workspace\GameEngine\BlueEngine\BlueSource\BEnums.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="blue::enums::eResourceType" Collapsed="true">
+    <Position X="21.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAIIAAAAAAAA=</HashCode>
+      <FileName>C:\Users\imdanu\OneDrive\바탕 화면\Workspace\GameEngine\BlueEngine\BlueSource\BEnums.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>
