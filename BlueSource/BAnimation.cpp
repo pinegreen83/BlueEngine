@@ -57,26 +57,53 @@ namespace blue
 
 		if (renderer::mainCamera)
 			pos = renderer::mainCamera->CalculatePosition(pos);
-		
-		BLENDFUNCTION func = {};
-		func.BlendOp = AC_SRC_OVER;
-		func.BlendFlags = 0;
-		func.AlphaFormat = AC_SRC_ALPHA;
-		func.SourceConstantAlpha = 125; // 0(transparent) ~ 255(opaque)
 
 		Sprite sprite = mAnimationSheet[mIndex];
-		HDC imgHdc = mTexture->GetHdc();
+		graphics::Texture::eTextureType type = mTexture->GetTextureType();
+		if (type == graphics::Texture::eTextureType::Bmp)
+		{
+			BLENDFUNCTION func = {};
+			func.BlendOp = AC_SRC_OVER;
+			func.BlendFlags = 0;
+			func.AlphaFormat = AC_SRC_ALPHA;
+			func.SourceConstantAlpha = 125; // 0(transparent) ~ 255(opaque)
 
-		AlphaBlend(hdc
-			, pos.x, pos.y
-			, sprite.size.x * 5
-			, sprite.size.y * 5
-			, imgHdc
-			, sprite.leftTop.x
-			, sprite.leftTop.y
-			, sprite.size.x
-			, sprite.size.y
-			, func);
+
+			HDC imgHdc = mTexture->GetHdc();
+
+			AlphaBlend(hdc
+				, pos.x, pos.y
+				, sprite.size.x * 5
+				, sprite.size.y * 5
+				, imgHdc
+				, sprite.leftTop.x
+				, sprite.leftTop.y
+				, sprite.size.x
+				, sprite.size.y
+				, func);
+		}
+		else if (type == graphics::Texture::eTextureType::Png)
+		{
+			// 내가 원하는 픽셀을 투명화 시킬 때
+			Gdiplus::ImageAttributes imgAtt = {};
+
+			// 투명화 시킬 픽셀의 색 범위
+			imgAtt.SetColorKey(Gdiplus::Color(100, 100, 100), Gdiplus::Color(255, 255, 255));
+
+			Gdiplus::Graphics graphics(hdc);
+			graphics.DrawImage(mTexture->GetImage()
+				, Gdiplus::Rect
+				(
+					pos.x, pos.y, sprite.size.x , sprite.size.y
+				)
+				, sprite.leftTop.x
+				, sprite.leftTop.y
+				, sprite.size.x
+				, sprite.size.y
+				, Gdiplus::UnitPixel
+				, nullptr
+			);
+		}		
 	}
 
 	void Animation::CreateAnimation(const std::wstring& name, graphics::Texture* spriteSheet, Vector2 leftTop, Vector2 size, Vector2 offset, UINT spriteLength, float duration)

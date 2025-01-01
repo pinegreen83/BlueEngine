@@ -19,6 +19,7 @@ namespace blue::enums
 		//Tree,
 		//Character,
 		Player,
+		Particle,
 		Max = 16,
 	};
 

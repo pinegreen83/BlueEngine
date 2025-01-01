@@ -39,19 +39,19 @@ namespace blue
 		sr->SetSize(Vector2(3.0f, 3.0f));*/
 		mPlayer->AddComponent<PlayerScript>();
 
-		graphics::Texture* packmanTexture = Resources::Find<graphics::Texture>(L"Cat");
+		graphics::Texture* packmanTexture = Resources::Find<graphics::Texture>(L"MapleEffcet");
 		Animator* animator = mPlayer->AddComponent<Animator>();
 		animator->CreateAnimation(L"CatFrontMove", packmanTexture
-			, Vector2(0.0f, 0.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.5f);
+			, Vector2(0.0f, 0.0f), Vector2(386.0f, 246.0f), Vector2::Zero, 8, 0.1f);
 
 		animator->PlayAnimation(L"CatFrontMove", true);
 		/*sr->SetTexture(packmanTexture);*/
 
-		GameObject* bg = object::Instantiate<GameObject>(enums::eLayerType::BackGround);
+		GameObject* bg = object::Instantiate<GameObject>(enums::eLayerType::Particle);
 		SpriteRenderer* bgSr = bg->AddComponent<SpriteRenderer>();
-		bgSr->SetSize(Vector2(3.0f, 3.0f));
+		//bgSr->SetSize(Vector2(3.0f, 3.0f));
 
-		graphics::Texture* bgTexture = Resources::Find<graphics::Texture>(L"Map");
+		graphics::Texture* bgTexture = Resources::Find<graphics::Texture>(L"Bubble");
 		bgSr->SetTexture(bgTexture);
 
 		Scene::Initialize();
