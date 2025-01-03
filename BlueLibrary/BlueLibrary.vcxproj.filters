@@ -27,6 +27,12 @@
     <ClCompile Include="BPlayerScript.cpp">
       <Filter>Scripts</Filter>
     </ClCompile>
+    <ClCompile Include="BCat.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="BCatScript.cpp">
+      <Filter>Scripts</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BPlayScene.h">
@@ -42,6 +48,12 @@
       <Filter>Scenes</Filter>
     </ClInclude>
     <ClInclude Include="BPlayerScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="BCat.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="BCatScript.h">
       <Filter>Scripts</Filter>
     </ClInclude>
   </ItemGroup>

@@ -68,7 +68,7 @@ namespace blue
 			func.BlendOp = AC_SRC_OVER;
 			func.BlendFlags = 0;
 			func.AlphaFormat = AC_SRC_ALPHA;
-			func.SourceConstantAlpha = 125; // 0(transparent) ~ 255(opaque)
+			func.SourceConstantAlpha = 255; // 0(transparent) ~ 255(opaque)
 
 
 			HDC imgHdc = mTexture->GetHdc();

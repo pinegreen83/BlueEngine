@@ -150,6 +150,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    //load Scenes
    blue::LoadResources();
    blue::LoadScenes();
+   
+   int a = 0;
+   srand((unsigned int)(& a));
 
    return TRUE;
 }
