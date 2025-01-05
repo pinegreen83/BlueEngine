@@ -17,6 +17,7 @@ namespace blue
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
+		void SetTarget(GameObject* target) { mTarget = target; };
 		
 	private:
 		//std::vector<GameObject*> mGameObjects;

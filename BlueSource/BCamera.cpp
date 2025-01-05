@@ -33,9 +33,11 @@ namespace blue
 			Transform* tr = mTarget->GetComponent<Transform>();
 			mLookPosition = tr->GetPosition();
 		}
-
-		Transform* cameraTr = GetOwner()->GetComponent<Transform>();
-		mLookPosition = cameraTr->GetPosition();
+		else
+		{
+			Transform* cameraTr = GetOwner()->GetComponent<Transform>();
+			mLookPosition = cameraTr->GetPosition();
+		}
 
 		mDistance = mLookPosition - (mResolution / 2.0f);
 	}

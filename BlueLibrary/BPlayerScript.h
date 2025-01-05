@@ -23,6 +23,8 @@ namespace blue
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
+		void AttackEffect();
+
 	private:
 		void idle();
 		void move();
@@ -31,9 +33,5 @@ namespace blue
 	private:
 		eState mState;
 		class Animator* mAnimator;
-
-		//void (*StartEvent)();
-		//void (*CompleteEvent)();
-		//void (*EndEvent)();
 	};
 }

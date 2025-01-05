@@ -2,6 +2,7 @@
 #include "BInput.h"
 #include "BTime.h"
 #include "BSceneManager.h"
+#include "BResources.h"
 
 namespace blue
 {
@@ -58,6 +59,12 @@ namespace blue
 		SceneManager::Render(mBackHdc);
 
 		copyRenderTarget(mBackHdc, mHdc);
+	}
+
+	void Application::Release()
+	{
+		SceneManager::Release();
+		Resources::Release();
 	}
 
 	void Application::clearRenderTarget()
