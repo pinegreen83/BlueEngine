@@ -1,12 +1,23 @@
 #pragma once
 #include "CommonInclude.h"
 #include "BComponent.h"
+//#include "BObject.h"
 
 namespace blue
 {
 	class GameObject
 	{
 	public:
+		//friend void object::Destroy(GameObject* obj);
+
+		enum class eState
+		{
+			Active,
+			Paused,
+			Dead,
+			End
+		};
+
 		GameObject();
 		~GameObject();
 
@@ -40,10 +51,19 @@ namespace blue
 			return component;
 		}
 
+		eState GetActive() { return mState; }
+		void SetActive(bool power)
+		{
+			if (power == true) mState = eState::Active;
+			if (power == false) mState = eState::Paused;
+		}
+		void Death() { mState = eState::Dead; }
+
 	private:
 		void initializeTransform();
 
 	private:
+		eState mState;
 		std::vector<Component*> mComponents;
 	};
 }

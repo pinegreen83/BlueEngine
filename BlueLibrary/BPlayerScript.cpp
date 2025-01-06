@@ -96,6 +96,7 @@ namespace blue
 		catAnimator->PlayAnimation(L"SitDown", false);
 		cat->GetComponent<Transform>()->SetPosition(Vector2(200.0f, 200.0f));
 		cat->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
+
 	}
 
 	void PlayerScript::idle()

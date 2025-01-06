@@ -54,7 +54,7 @@ namespace blue
 		/// Cat
 		Cat* cat = object::Instantiate<Cat>(enums::eLayerType::Animal);
 		cat->AddComponent<CatScript>();
-		cameraComp->SetTarget(cat);
+		//cameraComp->SetTarget(cat);
 
 		graphics::Texture* catTex = Resources::Find<graphics::Texture>(L"Cat");
 		Animator* catAnimator = cat->AddComponent<Animator>();

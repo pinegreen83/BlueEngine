@@ -36,6 +36,8 @@ namespace blue
 		Update();
 		LateUpdate();
 		Render();
+
+		Destroy();
 	}
 	
 	void Application::Update()
@@ -59,6 +61,11 @@ namespace blue
 		SceneManager::Render(mBackHdc);
 
 		copyRenderTarget(mBackHdc, mHdc);
+	}
+
+	void Application::Destroy()
+	{
+		SceneManager::Destroy();
 	}
 
 	void Application::Release()

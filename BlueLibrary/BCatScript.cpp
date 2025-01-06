@@ -4,6 +4,7 @@
 #include "BTIme.h"
 #include "BGameObject.h"
 #include "BAnimator.h"
+#include "BObject.h"
 
 namespace blue
 {
@@ -11,6 +12,7 @@ namespace blue
 		: mState(eState::SitDown)
 		, mAnimator(nullptr)
 		, mTime(0.0f)
+		, mDeathTime(0.0f)
 	{
 
 	}
@@ -27,6 +29,12 @@ namespace blue
 
 	void CatScript::Update()
 	{
+		mDeathTime += Time::DeltaTime();
+		if (mDeathTime > 6.0f)
+		{
+			object::Destroy(GetOwner());
+		}
+
 		if (mAnimator == nullptr)
 		{
 			mAnimator = GetOwner()->GetComponent<Animator>();
