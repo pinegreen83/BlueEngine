@@ -38,6 +38,11 @@ namespace blue
 			if (gameObj == nullptr)
 				continue;
 
+			GameObject::eState state = gameObj->GetActive();
+			if (state == GameObject::eState::Paused
+				|| state == GameObject::eState::Dead)
+				continue;
+
 			gameObj->Update();
 		}
 	}
@@ -49,6 +54,11 @@ namespace blue
 			if (gameObj == nullptr)
 				continue;
 
+			GameObject::eState state = gameObj->GetActive();
+			if (state == GameObject::eState::Paused
+				|| state == GameObject::eState::Dead)
+				continue;
+
 			gameObj->LateUpdate();
 		}
 	}
@@ -58,6 +68,11 @@ namespace blue
 		for (GameObject* gameObj : mGameObjects)
 		{
 			if (gameObj == nullptr)
+				continue;
+
+			GameObject::eState state = gameObj->GetActive();
+			if (state == GameObject::eState::Paused
+				|| state == GameObject::eState::Dead)
 				continue;
 
 			gameObj->Render(hdc);

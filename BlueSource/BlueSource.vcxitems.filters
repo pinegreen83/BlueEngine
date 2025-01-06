@@ -55,10 +55,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)BComponent.cpp">
       <Filter>Component\Component</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)BAnimator.cpp">
-      <Filter>Component\Component</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)BAnimation.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)BAnimator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)BGameObject.h">
@@ -124,10 +122,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)BComponent.h">
       <Filter>Component\Component</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)BAnimator.h">
-      <Filter>Component\Component</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)BAnimation.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)BAnimator.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="GameObject">

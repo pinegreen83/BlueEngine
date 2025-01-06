@@ -1,13 +1,40 @@
 #include "BTexture.h"
 #include "BApplication.h"
+#include "BResources.h"
 
 // 해당 전역변수가 존재함을 알리는 키워드 extern
 extern blue::Application application;
 
 namespace blue::graphics
 {
+	Texture* Texture::Create(const std::wstring& name, UINT width, UINT height)
+	{
+		Texture* image = Resources::Find<Texture>(name);
+		if (image)
+			return image;
+
+		image = new Texture();
+		image->SetName(name);
+		image->SetWidth(width);
+		image->SetHeight(height);
+
+		HDC hdc = application.GetHdc();
+		HWND hwnd = application.GetHwnd();
+
+		image->mBitmap = CreateCompatibleBitmap(hdc, width, height);
+		image->mHdc = CreateCompatibleDC(hdc);
+
+		HBITMAP oldBitmap = (HBITMAP)SelectObject(image->mHdc, image->mBitmap);
+		DeleteObject(oldBitmap);
+
+		Resources::Insert(name, image);
+
+		return image;
+	}
+
 	Texture::Texture()
 		: Resource(enums::eResourceType::Texture)
+		, mbAlpha(false)
 	{
 	}
 
