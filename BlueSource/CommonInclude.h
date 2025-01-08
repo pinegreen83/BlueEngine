@@ -8,9 +8,6 @@
 #include <map>
 #include <functional>
 #include <filesystem>
-#include <math.h>
-
-#include "BMath.h"
 
 #include <mmsystem.h>
 #include <dinput.h>
@@ -21,3 +18,4 @@
 #pragma comment(lib, "gdiplus.lib")
 
 #include "BEnums.h"
+#include "BMath.h"

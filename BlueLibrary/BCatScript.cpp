@@ -13,6 +13,7 @@ namespace blue
 		, mAnimator(nullptr)
 		, mTime(0.0f)
 		, mDeathTime(0.0f)
+		, mDest(Vector2::Zero)
 	{
 
 	}
@@ -32,7 +33,7 @@ namespace blue
 		mDeathTime += Time::DeltaTime();
 		if (mDeathTime > 6.0f)
 		{
-			object::Destroy(GetOwner());
+			//object::Destroy(GetOwner());
 		}
 
 		if (mAnimator == nullptr)
@@ -72,15 +73,34 @@ namespace blue
 	void CatScript::sitDown()
 	{
 		mTime += Time::DeltaTime();
-		if (mTime > 3.0f)
-		{
-			mState = eState::Walk;
-			int direction = rand() % 4;
-			mDirection = (eDirection)direction;
-			PlayWalkAnimationByDirection(mDirection);
 
-			mTime = 0.0f;
+		if (mTime > 2.0f)
+		{
+			object::Destroy(GetOwner());
 		}
+
+		Transform* tr = GetOwner()->GetComponent<Transform>();
+		Vector2 pos = tr->GetPosition();
+		//pos.x -= 100.0f * Time::DeltaTime();
+
+		//Vector2 mousePos = Input::GetMousePosition();
+
+		Transform* plTr = mPlayer->GetComponent<Transform>();
+
+		Vector2 dest = mDest - plTr->GetPosition();
+		pos += dest.normalize() * (100.0f * Time::DeltaTime());
+
+		tr->SetPosition(pos);
+
+		//if (mTime > 3.0f)
+		//{
+		//	mState = eState::Walk;
+		//	int direction = rand() % 4;
+		//	mDirection = (eDirection)direction;
+		//	PlayWalkAnimationByDirection(mDirection);
+
+		//	mTime = 0.0f;
+		//}
 	}
 
 	void CatScript::move()
