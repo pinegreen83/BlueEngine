@@ -53,5 +53,6 @@ namespace blue
 		float mDeathTime;
 
 		GameObject* mPlayer;
+		float mRadian;
 	};
 }

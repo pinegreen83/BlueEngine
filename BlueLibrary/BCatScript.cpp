@@ -14,6 +14,7 @@ namespace blue
 		, mTime(0.0f)
 		, mDeathTime(0.0f)
 		, mDest(Vector2::Zero)
+		, mRadian(0.0f)
 	{
 
 	}
@@ -76,19 +77,32 @@ namespace blue
 
 		if (mTime > 2.0f)
 		{
-			object::Destroy(GetOwner());
+			//object::Destroy(GetOwner());
 		}
 
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
-		//pos.x -= 100.0f * Time::DeltaTime();
 
-		//Vector2 mousePos = Input::GetMousePosition();
+		// 마우스 위치 이동 (벡터의 뺄셈 활용)
+		//Transform* plTr = mPlayer->GetComponent<Transform>();
+		//Vector2 dest = mDest - plTr->GetPosition();
+		//pos += dest.normalize() * (100.0f * Time::DeltaTime());
 
+		// 삼각함수를 통한 이동
+		//mRadian += 5.0f * Time::DeltaTime();
+		//pos += Vector2(1.0f, abs(cosf(mRadian))) * (100.0f * Time::DeltaTime());
+
+		// 마우스 위치 방향으로 회전 후 마우스 위치 이동 (벡터의 뺄셈 활용)
 		Transform* plTr = mPlayer->GetComponent<Transform>();
-
 		Vector2 dest = mDest - plTr->GetPosition();
-		pos += dest.normalize() * (100.0f * Time::DeltaTime());
+		dest.normalize();
+
+		float rotDegree = Vector2::Dot(dest, Vector2::Right); // cos
+		rotDegree = acosf(rotDegree);
+
+		rotDegree = ConvertDegree(rotDegree);
+
+		pos += dest * (100.0f * Time::DeltaTime());
 
 		tr->SetPosition(pos);
 
