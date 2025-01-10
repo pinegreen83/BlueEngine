@@ -16,6 +16,7 @@
 #include "BCat.h"
 #include "BCatScript.h"
 #include "BBoxCollider2D.h"
+#include "BCollisionManager.h"
 
 namespace blue
 {
@@ -31,6 +32,8 @@ namespace blue
 
 	void PlayScene::Initialize()
 	{
+		CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Animal, true);
+
 		// main camera
 		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::Particle, Vector2(344.0f, 442.0f));
 		Camera* cameraComp = camera->AddComponent<Camera>();

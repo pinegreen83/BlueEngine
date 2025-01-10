@@ -3,6 +3,7 @@
 #include "BTime.h"
 #include "BSceneManager.h"
 #include "BResources.h"
+#include "BCollisionManager.h"
 
 namespace blue
 {
@@ -28,6 +29,7 @@ namespace blue
 		createBuffer(width, height);
 		initializeEtc();
 
+		CollisionManager::Initialize();
 		SceneManager::Initialize();
 	}
 
@@ -44,12 +46,13 @@ namespace blue
 	{
 		Input::Update();
 		Time::Update();
-
+		CollisionManager::Update();
 		SceneManager::Update();
 	}
 	
 	void Application::LateUpdate()
 	{
+		CollisionManager::LateUpdate();
 		SceneManager::LateUpdate();
 	}
 
@@ -58,6 +61,7 @@ namespace blue
 		clearRenderTarget();
 
 		Time::Render(mBackHdc);
+		CollisionManager::Render(mBackHdc);
 		SceneManager::Render(mBackHdc);
 
 		copyRenderTarget(mBackHdc, mHdc);

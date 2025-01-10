@@ -18,6 +18,7 @@ namespace blue
 		virtual void Destroy();
 
 		void AddGameObject(GameObject* gameObject);
+		const std::vector<GameObject*> GetGameObject() { return mGameObjects;  }
 
 	private:
 		//eLayerType mType;
