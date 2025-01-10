@@ -57,6 +57,15 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)BAnimation.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BAnimator.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)BCollider.cpp">
+      <Filter>Component\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)BBoxCollider2D.cpp">
+      <Filter>Component\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)BCircleCollider2D.cpp">
+      <Filter>Component\Collider</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)BGameObject.h">
@@ -124,6 +133,15 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)BAnimation.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BAnimator.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)BCollider.h">
+      <Filter>Component\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)BBoxCollider2D.h">
+      <Filter>Component\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)BCircleCollider2D.h">
+      <Filter>Component\Collider</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="GameObject">
@@ -170,6 +188,9 @@
     </Filter>
     <Filter Include="Component\Component">
       <UniqueIdentifier>{39b7aae2-1695-409f-b958-d6b001ee2c8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Collider">
+      <UniqueIdentifier>{331907b1-6b72-4476-a9be-b8636edefcee}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

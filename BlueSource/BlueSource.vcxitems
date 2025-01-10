@@ -17,7 +17,10 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)BAnimation.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BAnimator.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)BBoxCollider2D.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BCamera.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)BCircleCollider2D.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)BCollider.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BEnums.h" />
@@ -42,7 +45,10 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)BAnimation.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BAnimator.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)BBoxCollider2D.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BCamera.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)BCircleCollider2D.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)BCollider.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BGameObject.cpp" />

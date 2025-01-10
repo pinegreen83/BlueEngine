@@ -93,18 +93,18 @@ namespace blue
 		//pos += Vector2(1.0f, abs(cosf(mRadian))) * (100.0f * Time::DeltaTime());
 
 		// 마우스 위치 방향으로 회전 후 마우스 위치 이동 (벡터의 뺄셈 활용)
-		Transform* plTr = mPlayer->GetComponent<Transform>();
-		Vector2 dest = mDest - plTr->GetPosition();
-		dest.normalize();
+		//Transform* plTr = mPlayer->GetComponent<Transform>();
+		//Vector2 dest = mDest - plTr->GetPosition();
+		//dest.normalize();
 
-		float rotDegree = Vector2::Dot(dest, Vector2::Right); // cos
-		rotDegree = acosf(rotDegree);
+		//float rotDegree = Vector2::Dot(dest, Vector2::Right); // cos
+		//rotDegree = acosf(rotDegree);
 
-		rotDegree = ConvertDegree(rotDegree);
+		//rotDegree = ConvertDegree(rotDegree);
 
-		pos += dest * (100.0f * Time::DeltaTime());
+		//pos += dest * (100.0f * Time::DeltaTime());
 
-		tr->SetPosition(pos);
+		//tr->SetPosition(pos);
 
 		//if (mTime > 3.0f)
 		//{

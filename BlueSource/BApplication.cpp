@@ -77,7 +77,13 @@ namespace blue
 	void Application::clearRenderTarget()
 	{
 		// clear
+		HBRUSH greyBrush = (HBRUSH)CreateSolidBrush(RGB(128, 128, 128));
+		HBRUSH oldBrush = (HBRUSH)SelectObject(mBackHdc, greyBrush);
+
 		Rectangle(mBackHdc, -1, -1, 1601, 901);
+
+		SelectObject(mBackHdc, oldBrush);
+		DeleteObject(greyBrush);
 	}
 
 	void Application::copyRenderTarget(HDC source, HDC dest)
