@@ -18,10 +18,15 @@ namespace blue
 		virtual void Destroy();
 
 		void AddGameObject(GameObject* gameObject);
+		void EraseGameObject(GameObject* eraseGameObj);
 		const std::vector<GameObject*> GetGameObject() { return mGameObjects;  }
 
 	private:
-		//eLayerType mType;
+		void findDeadGameObjects(OUT std::vector<GameObject*>& gameObjs);
+		void deleteGameObjects(std::vector<GameObject*> deleteObjs);
+		void eraseDeadGameObject();
+
+	private:
 		std::vector<GameObject*> mGameObjects;
 	};
 

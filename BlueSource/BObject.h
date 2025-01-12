@@ -13,6 +13,7 @@ namespace blue::object
 	static T* Instantiate(blue::enums::eLayerType type)
 	{
 		T* gameObject = new T();
+		gameObject->SetLayerType(type);
 		Scene* activeScene = SceneManager::GetActiveScene();
 		Layer* layer = activeScene->GetLayer(type);
 		layer->AddGameObject(gameObject);
@@ -24,6 +25,7 @@ namespace blue::object
 	static T* Instantiate(blue::enums::eLayerType type, math::Vector2 position)
 	{
 		T* gameObject = new T();
+		gameObject->SetLayerType(type);
 		Scene* activeScene = SceneManager::GetActiveScene();
 		Layer* layer = activeScene->GetLayer(type);
 		layer->AddGameObject(gameObject);
@@ -34,8 +36,13 @@ namespace blue::object
 		return gameObject;
 	}
 
-	static void Destroy(GameObject* obj)
+	static void DontDestroyOnLoad(GameObject* gameObject)
 	{
-		obj->Death();
+		Scene* activeScene = SceneManager::GetActiveScene();
+		// 현재 씬에서 게임 오브젝트를 DontDestroy 씬으로 넣어줌.
+		activeScene->EraseGameObject(gameObject);
+
+		Scene* dontDestroyOnLoad = SceneManager::GetDontDestroyOnLoad();
+		dontDestroyOnLoad->AddGameObject(gameObject, gameObject->GetLayerType());
 	}
 }

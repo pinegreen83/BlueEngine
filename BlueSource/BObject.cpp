@@ -2,5 +2,6 @@
 
 namespace blue::object
 {
-	static std::vector<GameObject*> DontDestroyGameObjects = {};
+
+
 }

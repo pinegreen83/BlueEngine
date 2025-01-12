@@ -3,10 +3,20 @@
 #include "BTime.h"
 #include "BTransform.h"
 
+namespace blue::object
+{
+	void Destroy(GameObject* gameObject)
+	{
+		if (gameObject != nullptr)
+			gameObject->death();
+	}
+}
+
 namespace blue
 {
 	GameObject::GameObject()
 		: mState(eState::Active)
+		, mLayerType(eLayerType::None)
 	{
 		mComponents.resize((UINT)enums::eComponentType::End);
 		initializeTransform();

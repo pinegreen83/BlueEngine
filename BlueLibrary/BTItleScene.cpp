@@ -1,7 +1,7 @@
 #include "BTItleScene.h"
 #include "BInput.h"
 #include "BPlayScene.h"
-#include "BSceneManager.h"s
+#include "BSceneManager.h"
 
 namespace blue
 {

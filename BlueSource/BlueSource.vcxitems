@@ -23,6 +23,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)BCollider.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BCollisionManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BComponent.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)BDontDestroyOnLoad.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BEnums.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BGameObject.h" />
@@ -52,6 +53,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)BCollider.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BCollisionManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BComponent.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)BDontDestroyOnLoad.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BInput.cpp" />
