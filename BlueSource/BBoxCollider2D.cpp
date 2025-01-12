@@ -1,10 +1,13 @@
 #include "BBoxCollider2D.h"
 #include "BTransform.h"
 #include "BGameObject.h"
+#include "BRenderer.h"
+#include "BCamera.h"
 
 namespace blue
 {
 	BoxCollider2D::BoxCollider2D()
+		: Collider(enums::eColliderType::Rect2D)
 	{
 
 	}
@@ -33,6 +36,9 @@ namespace blue
 	{
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
+
+		if (renderer::mainCamera)
+			pos = renderer::mainCamera->CalculatePosition(pos);
 
 		Vector2 offset = GetOffset();
 

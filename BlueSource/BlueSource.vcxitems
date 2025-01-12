@@ -57,6 +57,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)BInput.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BMath.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)BObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BResources.cpp" />
