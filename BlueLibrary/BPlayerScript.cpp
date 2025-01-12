@@ -8,7 +8,7 @@
 #include "BCatScript.h"
 #include "BObject.h"
 #include "BResources.h"
-#include "BResources.h"
+#include "BCollider.h"
 
 namespace blue
 {
@@ -104,6 +104,21 @@ namespace blue
 
 		Vector2 mousePos = Input::GetMousePosition();
 		catScr->mDest = mousePos;
+	}
+
+	void PlayerScript::OnCollisionEnter(Collider* other)
+	{
+
+	}
+
+	void PlayerScript::OnCollisionStay(Collider* other)
+	{
+
+	}
+
+	void PlayerScript::OnCollisionExit(Collider* other)
+	{
+
 	}
 
 	void PlayerScript::idle()

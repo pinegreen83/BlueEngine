@@ -1,4 +1,5 @@
 #include "BScript.h"
+#include "BCollider.h"
 
 namespace blue
 {
@@ -29,5 +30,14 @@ namespace blue
 	void Script::Render(HDC hdc)
 	{
 
+	}
+	void Script::OnCollisionEnter(Collider* other)
+	{
+	}
+	void Script::OnCollisionStay(Collider* other)
+	{
+	}
+	void Script::OnCollisionExit(Collider* other)
+	{
 	}
 }

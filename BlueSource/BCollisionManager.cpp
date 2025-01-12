@@ -3,10 +3,13 @@
 #include "BSceneManager.h"
 #include "BGameObject.h"
 #include "BCollider.h"
+#include "BTransform.h"
+#include "BGameObject.h"
 
 namespace blue
 {
 	std::bitset<(UINT)eLayerType::Max> CollisionManager::mCollisionLayerMatrix[(UINT)eLayerType::Max] = {};
+	std::unordered_map<UINT64, bool> CollisionManager::mCollisionMap = {};
 
 	void CollisionManager::Initialize()
 	{
@@ -90,6 +93,66 @@ namespace blue
 
 	void CollisionManager::ColliderCollision(Collider* left, Collider* right)
 	{
+		// 두 충돌체 번호를 가져온 ID를 확인해서 ColliionId 값을 세팅
+		CollisionId id = {};
+		id.left = left->GetID();
+		id.right = right->GetID();
 
+		// 해당 ID로 충돌체 정보를 검색해준다.
+		auto iter = mCollisionMap.find(id.id);
+		if (iter == mCollisionMap.end())
+		{
+			mCollisionMap.insert(std::make_pair(id.id, false));
+			iter = mCollisionMap.find(id.id);
+		}
+
+		// 충돌체크
+		if (Intersect(left, right))
+		{
+			// 최초 충돌
+			if (iter->second == false)
+			{
+				left->OnCollisionEnter(right);
+				right->OnCollisionEnter(left);
+				iter->second = true;
+			}
+			// 충돌 중
+			else
+			{
+				left->OnCollisionStay(right);
+				right->OnCollisionStay(left);
+			}
+		}
+		else
+		{
+			// 이제는 충돌이 아닐 떄
+			if (iter->second == true)
+			{
+				left->OnCollisionExit(right);
+				right->OnCollisionExit(left);
+
+				iter->second = false;
+			}
+		}
+	}
+
+	bool CollisionManager::Intersect(Collider* left, Collider* right)
+	{
+		Transform* leftTr = left->GetOwner()->GetComponent<Transform>();
+		Transform* rightTr = right->GetOwner()->GetComponent<Transform>();
+
+		Vector2 leftPos = leftTr->GetPosition() + left->GetOffset();
+		Vector2 rightPos = rightTr->GetPosition() + right->GetOffset();
+
+		Vector2 leftSize = left->GetSize() * 100.0f;
+		Vector2 rightSize = right->GetSize() * 100.0f;
+
+		if (fabs(leftPos.x - rightPos.x) < fabs(leftSize.x / 2.0f + rightSize.x / 2.0f)
+			&& fabs(leftPos.y - rightPos.y) < fabs(leftSize.y / 2.0f + rightSize.y / 2.0f))
+		{
+			return true;
+		}
+
+		return false;
 	}
 }
