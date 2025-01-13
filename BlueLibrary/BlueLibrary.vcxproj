@@ -142,7 +142,9 @@
     <ClCompile Include="BPlayer.cpp" />
     <ClCompile Include="BPlayerScript.cpp" />
     <ClCompile Include="BPlayScene.cpp" />
+    <ClCompile Include="BTile.cpp" />
     <ClCompile Include="BTItleScene.cpp" />
+    <ClCompile Include="BToolScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BCat.h" />
@@ -151,7 +153,9 @@
     <ClInclude Include="BPlayer.h" />
     <ClInclude Include="BPlayerScript.h" />
     <ClInclude Include="BPlayScene.h" />
+    <ClInclude Include="BTile.h" />
     <ClInclude Include="BTItleScene.h" />
+    <ClInclude Include="BToolScene.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

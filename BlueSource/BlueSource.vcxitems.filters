@@ -73,6 +73,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)BDontDestroyOnLoad.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)BTileMapRenderer.cpp">
+      <Filter>Component\TileMapRenderer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)BGameObject.h">
@@ -153,6 +156,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)BDontDestroyOnLoad.h">
       <Filter>Scene</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)BTileMapRenderer.h">
+      <Filter>Component\TileMapRenderer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="GameObject">
@@ -202,6 +208,9 @@
     </Filter>
     <Filter Include="Component\Collider">
       <UniqueIdentifier>{331907b1-6b72-4476-a9be-b8636edefcee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\TileMapRenderer">
+      <UniqueIdentifier>{9d1bef11-ab36-4d89-955e-bd57d519deec}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

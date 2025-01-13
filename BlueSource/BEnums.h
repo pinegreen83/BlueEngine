@@ -17,7 +17,7 @@ namespace blue::enums
 	{
 		None,
 		BackGround,
-		//Tree,
+		Tile,
 		//Character,
 		Animal,
 		Player,

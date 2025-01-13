@@ -39,6 +39,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)BScript.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BSpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BTexture.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)BTileMapRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BTransform.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
@@ -68,6 +69,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)BScript.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BSpriteRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BTexture.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)BTileMapRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BTime.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BTransform.cpp" />
   </ItemGroup>
