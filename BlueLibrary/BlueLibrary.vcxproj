@@ -136,6 +136,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BCameraScript.cpp" />
     <ClCompile Include="BCat.cpp" />
     <ClCompile Include="BCatScript.cpp" />
     <ClCompile Include="BLoadScenes.h" />
@@ -147,6 +148,7 @@
     <ClCompile Include="BToolScene.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BCameraScript.h" />
     <ClInclude Include="BCat.h" />
     <ClInclude Include="BCatScript.h" />
     <ClInclude Include="BLoadResources.h" />

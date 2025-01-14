@@ -39,6 +39,9 @@
     <ClCompile Include="BTile.cpp">
       <Filter>Contents</Filter>
     </ClCompile>
+    <ClCompile Include="BCameraScript.cpp">
+      <Filter>Scripts</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BPlayScene.h">
@@ -65,6 +68,9 @@
     </ClInclude>
     <ClInclude Include="BTile.h">
       <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="BCameraScript.h">
+      <Filter>Scripts</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

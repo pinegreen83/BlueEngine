@@ -1,17 +1,19 @@
 #pragma once
-#include "../BlueSource/BGameObject.h"
+#include "../BlueSource/BScript.h"
+#include "../BlueSource/BTransform.h"
 
 namespace blue
 {
-	class Tile : public GameObject
+	class CameraScript :public Script
 	{
 	public:
+		CameraScript();
+		~CameraScript();
+
 		void Initialize() override;
 		void Update() override;
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
-
-		void SetIndexPosition(int x, int y);
 
 	private:
 

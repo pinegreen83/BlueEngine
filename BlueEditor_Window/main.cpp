@@ -141,7 +141,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
       CW_USEDEFAULT, 0, width, height, nullptr, nullptr, hInstance, nullptr);
 
    HWND ToolhWnd = CreateWindowW(L"TILEWINDOW", L"TileWindow", WS_OVERLAPPEDWINDOW,
-       CW_USEDEFAULT, 0, width, height, nullptr, nullptr, hInstance, nullptr);
+       0, 0, width, height, nullptr, nullptr, hInstance, nullptr);
 
    application.Initialize(hWnd, width, height);
 

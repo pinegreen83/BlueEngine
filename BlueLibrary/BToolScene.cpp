@@ -7,6 +7,7 @@
 #include "BCamera.h"
 #include "BRenderer.h"
 #include "BInput.h"
+#include "BCameraScript.h"
 
 namespace blue
 {
@@ -24,11 +25,12 @@ namespace blue
 	{
 		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::Particle, Vector2(344.0f, 442.0f));
 		Camera* cameraComp = camera->AddComponent<Camera>();
+		camera->AddComponent<CameraScript>();
 		renderer::mainCamera = cameraComp;
 
-		Tile* tile = object::Instantiate<Tile>(eLayerType::Tile);
-		TileMapRenderer* tmr = tile->AddComponent<TileMapRenderer>();
-		tmr->SetTexture(Resources::Find<graphics::Texture>(L"SpringFloor"));
+		//Tile* tile = object::Instantiate<Tile>(eLayerType::Tile);
+		//TileMapRenderer* tmr = tile->AddComponent<TileMapRenderer>();
+		//tmr->SetTexture(Resources::Find<graphics::Texture>(L"SpringFloor"));
 
 		Scene::Initialize();
 	}
@@ -45,15 +47,31 @@ namespace blue
 		if (Input::GetKeyDown(eKeyCode::LButton))
 		{
 			Vector2 pos = Input::GetMousePosition();
-			
-			int idxX = pos.x / TileMapRenderer::TileSize.x;
-			int idxY = pos.y / TileMapRenderer::TileSize.y;
+			pos = renderer::mainCamera->CalculateTilePosition(pos);
 
-			Tile* tile = object::Instantiate<Tile>(eLayerType::Tile);
-			TileMapRenderer* tmr = tile->AddComponent<TileMapRenderer>();
-			tmr->SetTexture(Resources::Find<graphics::Texture>(L"SpringFloor"));
+			if (pos.x >= 0.0f && pos.y >= 0.0f)
+			{
+				int idxX = pos.x / TileMapRenderer::TileSize.x;
+				int idxY = pos.y / TileMapRenderer::TileSize.y;
 
-			tile->SetPosition(idxX, idxY);
+				Tile* tile = object::Instantiate<Tile>(eLayerType::Tile);
+				TileMapRenderer* tmr = tile->AddComponent<TileMapRenderer>();
+				tmr->SetTexture(Resources::Find<graphics::Texture>(L"SpringFloor"));
+				tmr->SetIndex(TileMapRenderer::SelectedIndex);
+
+				tile->SetIndexPosition(idxX, idxY);
+				mTiles.push_back(tile);
+			}
+
+		}
+
+		if (Input::GetKeyDown(eKeyCode::S))
+		{
+			Save();
+		}
+		if (Input::GetKeyDown(eKeyCode::L))
+		{
+			Load();
 		}
 	}
 
@@ -61,16 +79,27 @@ namespace blue
 	{
 		Scene::Render(hdc);
 
+
 		for (size_t i = 0; i < 50; i++)
 		{
-			MoveToEx(hdc, TileMapRenderer::TileSize.x * i, 0, NULL);
-			LineTo(hdc, TileMapRenderer::TileSize.x * i, 1000);
+			Vector2 pos = renderer::mainCamera->CalculatePosition
+			(
+				Vector2(TileMapRenderer::TileSize.x * i, 0.0f)
+			);
+
+			MoveToEx(hdc, pos.x, 0, NULL);
+			LineTo(hdc, pos.x, 1000);
 		}
 
 		for (size_t i = 0; i < 50; i++)
 		{
-			MoveToEx(hdc, 0, TileMapRenderer::TileSize.y * i, NULL);
-			LineTo(hdc, 1000, TileMapRenderer::TileSize.y * i);
+			Vector2 pos = renderer::mainCamera->CalculatePosition
+			(
+				Vector2(0.0f, TileMapRenderer::TileSize.y * i)
+			);
+
+			MoveToEx(hdc, 0, pos.y, NULL);
+			LineTo(hdc, 1000, pos.y);
 		}
 	}
 
@@ -83,6 +112,106 @@ namespace blue
 	{
 		Scene::OnExit();
 	}
+
+	void ToolScene::Save()
+	{
+		OPENFILENAME ofn = {};
+
+		wchar_t szFilePath[256] = {};
+
+		ZeroMemory(&ofn, sizeof(ofn));
+		ofn.lStructSize = sizeof(ofn);
+		ofn.hwndOwner = NULL;
+		ofn.lpstrFile = szFilePath;
+		ofn.lpstrFile[0] = '\0';
+		ofn.nMaxFile = 256;
+		ofn.lpstrFilter = L"Tile\0*.tile\0";
+		ofn.nFilterIndex = 1;
+		ofn.lpstrFileTitle = NULL;
+		ofn.nMaxFileTitle = 0;
+		ofn.lpstrInitialDir = NULL;
+		ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST;
+		
+		if (false == GetSaveFileName(&ofn))
+			return;
+
+		FILE* pFile = nullptr;
+		_wfopen_s(&pFile, szFilePath, L"wb");
+
+		for (Tile* tile : mTiles)
+		{
+			TileMapRenderer* tmr = tile->GetComponent<TileMapRenderer>();
+			Transform* tr = tile->GetComponent<Transform>();
+			
+			Vector2 sourceIndex = tmr->GetIndex();
+			Vector2 position = tr->GetPosition();
+			
+			int x = sourceIndex.x;
+			fwrite(&x, sizeof(int), 1, pFile);
+			int y = sourceIndex.y;
+			fwrite(&y, sizeof(int), 1, pFile);
+
+			x = position.x;
+			fwrite(&x, sizeof(int), 1, pFile);
+			y = position.y;
+			fwrite(&y, sizeof(int), 1, pFile);
+		}
+
+		fclose(pFile);
+	}
+
+	void ToolScene::Load()
+	{
+		OPENFILENAME ofn = {};
+
+		wchar_t szFilePath[256] = {};
+
+		ZeroMemory(&ofn, sizeof(ofn));
+		ofn.lStructSize = sizeof(ofn);
+		ofn.hwndOwner = NULL;
+		ofn.lpstrFile = szFilePath;
+		ofn.lpstrFile[0] = '\0';
+		ofn.nMaxFile = 256;
+		ofn.lpstrFilter = L"All\0*.*\0Text\0*.TXT\0";
+		ofn.nFilterIndex = 1;
+		ofn.lpstrFileTitle = NULL;
+		ofn.nMaxFileTitle = 0;
+		ofn.lpstrInitialDir = NULL;
+		ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST;
+
+		if (false == GetOpenFileName(&ofn))
+			return;
+
+		FILE* pFile = nullptr;
+		_wfopen_s(&pFile, szFilePath, L"rb");
+
+		while (true)
+		{
+			int idxX = 0;
+			int idxY = 0;
+
+			int posX = 0;
+			int posY = 0;
+
+			if (fread(&idxX, sizeof(int), 1, pFile) == NULL)
+				break;
+			if (fread(&idxY, sizeof(int), 1, pFile) == NULL)
+				break;
+			if (fread(&posX, sizeof(int), 1, pFile) == NULL)
+				break;
+			if (fread(&posY, sizeof(int), 1, pFile) == NULL)
+				break;
+
+			Tile* tile = object::Instantiate<Tile>(eLayerType::Tile, Vector2(posX, posY));
+			TileMapRenderer* tmr = tile->AddComponent<TileMapRenderer>();
+			tmr->SetTexture(Resources::Find<graphics::Texture>(L"SpringFloor"));
+			tmr->SetIndex(Vector2(idxX, idxY));
+
+			mTiles.push_back(tile);
+		}
+
+		fclose(pFile);
+	}
 }
 
 LRESULT CALLBACK WndTileProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
@@ -91,19 +220,18 @@ LRESULT CALLBACK WndTileProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPar
 	{
 	case WM_LBUTTONDOWN:
 	{
-		//int wmId = LOWORD(wParam);
-		//// 메뉴 선택을 구문 분석합니다:
-		//switch (wmId)
-		//{
-		//case IDM_ABOUT:
-		//	DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
-		//	break;
-		//case IDM_EXIT:
-		//	DestroyWindow(hWnd);
-		//	break;
-		//default:
-		//	return DefWindowProc(hWnd, message, wParam, lParam);
-		//}
+		POINT mousePos = {};
+		GetCursorPos(&mousePos);
+		ScreenToClient(hWnd, &mousePos);
+
+		blue::math::Vector2 mousePosition;
+		mousePosition.x = mousePos.x;
+		mousePosition.y = mousePos.y;
+
+		int idxX = mousePosition.x / blue::TileMapRenderer::OriginTileSize.x;
+		int idxY = mousePosition.y / blue::TileMapRenderer::OriginTileSize.y;
+
+		blue::TileMapRenderer::SelectedIndex = Vector2(idxX, idxY);
 	}
 	break;
 	case WM_PAINT:

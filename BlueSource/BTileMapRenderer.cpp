@@ -7,17 +7,18 @@
 namespace blue
 {
 	Vector2 TileMapRenderer::TileSize = Vector2::One;
+	Vector2 TileMapRenderer::OriginTileSize = Vector2::One;
+	Vector2 TileMapRenderer::SelectedIndex = Vector2::One;
 
 	TileMapRenderer::TileMapRenderer()
 		: Component(enums::eComponentType::SpriteRenderer)
 		, mTexture(nullptr)
-		//, mSize(Vector2::One)
 		, mSize(3.0f, 3.0f)
-		//, mIndex(Vector2::One)
-		, mIndex(8.0f, 7.0f)
+		, mIndex(0.0f, 0.0f)
 		, mTileSize(16.0f, 16.0f)
 	{
 		TileSize = mTileSize * mSize;
+		OriginTileSize = mTileSize;
 	}
 
 	TileMapRenderer::~TileMapRenderer()
