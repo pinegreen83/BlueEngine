@@ -20,6 +20,7 @@
 #include "BCollisionManager.h"
 #include "BTile.h"
 #include "BTileMapRenderer.h"
+#include "BRigidbody.h"
 
 namespace blue
 {
@@ -60,6 +61,9 @@ namespace blue
 
 		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(300.0f, 250.0f));
 		//mPlayer->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
+
+		mPlayer->AddComponent<Rigidbody>();
+
 
 		/// Cat
 		Cat* cat = object::Instantiate<Cat>(enums::eLayerType::Animal);

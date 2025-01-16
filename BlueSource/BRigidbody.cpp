@@ -5,7 +5,7 @@
 
 namespace blue
 {
-	Rigidbody::Rigidbody(eColliderType type)
+	Rigidbody::Rigidbody()
 		: Component(enums::eComponentType::Rigidbody)
 		, mMass(1.0f)
 		, mFriction(10.0f)
