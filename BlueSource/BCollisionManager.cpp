@@ -41,6 +41,12 @@ namespace blue
 
 	}
 
+	void CollisionManager::Clear()
+	{
+		mCollisionMap.clear();
+		mCollisionLayerMatrix->reset();
+	}
+
 	void CollisionManager::CollisionLayerCheck(eLayerType left, eLayerType right, bool enable)
 	{
 		int row = 0;
@@ -62,8 +68,8 @@ namespace blue
 
 	void CollisionManager::LayerCollision(Scene* scene, eLayerType left, eLayerType right)
 	{
-		const std::vector<GameObject*>& lefts = scene->GetLayer(left)->GetGameObject();
-		const std::vector<GameObject*>& rights = scene->GetLayer(right)->GetGameObject();
+		const std::vector<GameObject*>& lefts = SceneManager::GetGameObjects(left); // scene->GetLayer(left)->GetGameObject();
+		const std::vector<GameObject*>& rights = SceneManager::GetGameObjects(right); // scene->GetLayer(right)->GetGameObject();
 
 		for (GameObject* left : lefts)
 		{

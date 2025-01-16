@@ -1,4 +1,5 @@
 #include "BScene.h"
+#include "BCollisionManager.h"
 
 namespace blue
 {
@@ -100,6 +101,6 @@ namespace blue
 
 	void Scene::OnExit()
 	{
-
+		CollisionManager::Clear();
 	}
 }
