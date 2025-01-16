@@ -1,6 +1,7 @@
 #pragma once
 #include "CommonInclude.h"
 #include "BComponent.h"
+#include "BCollider.h"
 //#include "BObject.h"
 
 namespace blue::object
@@ -10,7 +11,7 @@ namespace blue::object
 
 namespace blue
 {
-	class GameObject
+	class GameObject : public Entity
 	{
 	public:
 		friend void object::Destroy(GameObject* obj);

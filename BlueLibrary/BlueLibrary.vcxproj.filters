@@ -42,6 +42,12 @@
     <ClCompile Include="BCameraScript.cpp">
       <Filter>Scripts</Filter>
     </ClCompile>
+    <ClCompile Include="BFloor.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="BFloorScript.cpp">
+      <Filter>Scripts</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BPlayScene.h">
@@ -70,6 +76,12 @@
       <Filter>Contents</Filter>
     </ClInclude>
     <ClInclude Include="BCameraScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="BFloor.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="BFloorScript.h">
       <Filter>Scripts</Filter>
     </ClInclude>
   </ItemGroup>

@@ -139,6 +139,8 @@
     <ClCompile Include="BCameraScript.cpp" />
     <ClCompile Include="BCat.cpp" />
     <ClCompile Include="BCatScript.cpp" />
+    <ClCompile Include="BFloor.cpp" />
+    <ClCompile Include="BFloorScript.cpp" />
     <ClCompile Include="BLoadScenes.h" />
     <ClCompile Include="BPlayer.cpp" />
     <ClCompile Include="BPlayerScript.cpp" />
@@ -151,6 +153,8 @@
     <ClInclude Include="BCameraScript.h" />
     <ClInclude Include="BCat.h" />
     <ClInclude Include="BCatScript.h" />
+    <ClInclude Include="BFloor.h" />
+    <ClInclude Include="BFloorScript.h" />
     <ClInclude Include="BLoadResources.h" />
     <ClInclude Include="BPlayer.h" />
     <ClInclude Include="BPlayerScript.h" />

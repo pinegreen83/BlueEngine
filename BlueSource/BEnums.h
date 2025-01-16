@@ -22,6 +22,7 @@ namespace blue::enums
 		//Character,
 		Animal,
 		Player,
+		Floor,
 		Particle,
 		Max = 16,
 	};
