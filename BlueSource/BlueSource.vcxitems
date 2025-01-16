@@ -34,6 +34,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)BRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BResources.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)BRigidbody.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BScript.h" />
@@ -64,6 +65,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)BRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BResources.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)BRigidbody.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BScript.cpp" />

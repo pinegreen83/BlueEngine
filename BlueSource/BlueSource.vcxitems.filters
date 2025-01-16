@@ -55,8 +55,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)BComponent.cpp">
       <Filter>Component\Component</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)BAnimation.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)BAnimator.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BCollider.cpp">
       <Filter>Component\Collider</Filter>
     </ClCompile>
@@ -66,15 +64,26 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)BCircleCollider2D.cpp">
       <Filter>Component\Collider</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)BCollisionManager.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)BObject.cpp">
-      <Filter>Common</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)BDontDestroyOnLoad.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)BTileMapRenderer.cpp">
       <Filter>Component\TileMapRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)BAnimation.cpp">
+      <Filter>Component\Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)BAnimator.cpp">
+      <Filter>Component\Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)BCollisionManager.cpp">
+      <Filter>Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)BObject.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)BRigidbody.cpp">
+      <Filter>Component\Rigidbody</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -111,9 +120,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)BEnums.h">
       <Filter>Common</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)BObject.h">
-      <Filter>Common</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)BResource.h">
       <Filter>Resource</Filter>
     </ClInclude>
@@ -141,8 +147,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)BComponent.h">
       <Filter>Component\Component</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)BAnimation.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)BAnimator.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BCollider.h">
       <Filter>Component\Collider</Filter>
     </ClInclude>
@@ -152,12 +156,26 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)BCircleCollider2D.h">
       <Filter>Component\Collider</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)BCollisionManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BDontDestroyOnLoad.h">
       <Filter>Scene</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)BTileMapRenderer.h">
       <Filter>Component\TileMapRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)BAnimator.h">
+      <Filter>Component\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)BAnimation.h">
+      <Filter>Component\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)BCollisionManager.h">
+      <Filter>Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)BObject.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)BRigidbody.h">
+      <Filter>Component\Rigidbody</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -211,6 +229,18 @@
     </Filter>
     <Filter Include="Component\TileMapRenderer">
       <UniqueIdentifier>{9d1bef11-ab36-4d89-955e-bd57d519deec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Rigidbody">
+      <UniqueIdentifier>{a827ead0-2a6b-41e7-9494-ef589ba767e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Animator">
+      <UniqueIdentifier>{62830d8f-25d6-43e7-ae00-20db51ded44e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Collision">
+      <UniqueIdentifier>{a0bb0600-02b7-462f-abc9-e2ab442bc94d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object">
+      <UniqueIdentifier>{29cec1c3-e720-4c44-b427-3b42df81f510}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -7,6 +7,8 @@
 #include "../BlueSource/BApplication.h"
 #include "../BlueSource/BResources.h"
 #include "../BlueSource/BTexture.h"
+#include "../BlueSource/BSceneManager.h"
+
 
 #include "../BlueLibrary/BLoadResources.h"
 #include "../BlueLibrary/BLoadScenes.h"
@@ -140,9 +142,6 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, width, height, nullptr, nullptr, hInstance, nullptr);
 
-   HWND ToolhWnd = CreateWindowW(L"TILEWINDOW", L"TileWindow", WS_OVERLAPPEDWINDOW,
-       0, 0, width, height, nullptr, nullptr, hInstance, nullptr);
-
    application.Initialize(hWnd, width, height);
 
    if (!hWnd)
@@ -161,22 +160,32 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    blue::LoadResources();
    blue::LoadScenes();
    
+
    int a = 0;
    srand((unsigned int)(& a));
 
-   // Tile Window 크기 조정
-   blue::graphics::Texture* texture 
-       = blue::Resources::Find<blue::graphics::Texture>(L"SpringFloor");
+   blue::Scene* activeScene = blue::SceneManager::GetActiveScene();
+  
+   std::wstring name = activeScene->GetName();
+   if (name == L"ToolScene")
+   {
+       HWND ToolhWnd = CreateWindowW(L"TILEWINDOW", L"TileWindow", WS_OVERLAPPEDWINDOW,
+           0, 0, width, height, nullptr, nullptr, hInstance, nullptr);
 
-   RECT rect = { 0, 0, texture->GetWidth(), texture->GetHeight() };
-   AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
+       // Tile Window 크기 조정
+       blue::graphics::Texture* texture
+           = blue::Resources::Find<blue::graphics::Texture>(L"SpringFloor");
 
-   UINT toolWidth = rect.right - rect.left;
-   UINT toolHeight = rect.bottom - rect.top;
+       RECT rect = { 0, 0, texture->GetWidth(), texture->GetHeight() };
+       AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
 
-   SetWindowPos(ToolhWnd, nullptr, width, 0, toolWidth, toolHeight, 0);
-   ShowWindow(ToolhWnd, true);
-   UpdateWindow(ToolhWnd);
+       UINT toolWidth = rect.right - rect.left;
+       UINT toolHeight = rect.bottom - rect.top;
+
+       SetWindowPos(ToolhWnd, nullptr, width, 0, toolWidth, toolHeight, 0);
+       ShowWindow(ToolhWnd, true);
+       UpdateWindow(ToolhWnd);
+   }
 
    return TRUE;
 }
