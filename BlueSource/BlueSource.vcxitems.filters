@@ -85,6 +85,12 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)BRigidbody.cpp">
       <Filter>Component\Rigidbody</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)BUIBase.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)BUIManager.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)BGameObject.h">
@@ -177,6 +183,12 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)BRigidbody.h">
       <Filter>Component\Rigidbody</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)BUIManager.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)BUIBase.h">
+      <Filter>UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="GameObject">
@@ -241,6 +253,9 @@
     </Filter>
     <Filter Include="Object">
       <UniqueIdentifier>{29cec1c3-e720-4c44-b427-3b42df81f510}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{18a1ef0b-6a0c-4031-8360-d6aa9be2a579}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -43,6 +43,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)BTileMapRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BTransform.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)BUIBase.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)BUIManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
   </ItemGroup>
   <ItemGroup>
@@ -74,5 +76,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)BTileMapRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BTime.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BTransform.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)BUIBase.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)BUIManager.cpp" />
   </ItemGroup>
 </Project>
