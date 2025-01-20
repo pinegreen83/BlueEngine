@@ -44,6 +44,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)BTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BTransform.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BUIBase.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)BUIButton.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)BUIHUD.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BUIManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
   </ItemGroup>
@@ -77,6 +79,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)BTime.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BTransform.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BUIBase.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)BUIButton.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)BUIHUD.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BUIManager.cpp" />
   </ItemGroup>
 </Project>

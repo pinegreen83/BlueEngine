@@ -91,6 +91,12 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)BUIManager.cpp">
       <Filter>UI</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)BUIHUD.cpp">
+      <Filter>UI\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)BUIButton.cpp">
+      <Filter>UI\Button</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)BGameObject.h">
@@ -189,6 +195,12 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)BUIBase.h">
       <Filter>UI</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)BUIHUD.h">
+      <Filter>UI\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)BUIButton.h">
+      <Filter>UI\Button</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="GameObject">
@@ -256,6 +268,12 @@
     </Filter>
     <Filter Include="UI">
       <UniqueIdentifier>{18a1ef0b-6a0c-4031-8360-d6aa9be2a579}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\Button">
+      <UniqueIdentifier>{204a030b-daf4-4cf6-a3d5-5084c79c10d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\HUD">
+      <UniqueIdentifier>{4506e229-6f75-4e79-a84d-6b9d021c2351}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

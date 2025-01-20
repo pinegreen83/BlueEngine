@@ -67,6 +67,16 @@ namespace blue
 
 	}
 
+	void UIBase::OnLateUpdate()
+	{
+
+	}
+
+	void UIBase::OnRender(HDC hdc)
+	{
+
+	}
+
 	void UIBase::OnClear()
 	{
 

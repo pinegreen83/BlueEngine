@@ -45,7 +45,8 @@ namespace blue::enums
 
 	enum class eUIType
 	{
-
+		HpBar,
+		Button,
 		End,
 	};
 }
