@@ -5,6 +5,7 @@
 #include "BResources.h"
 #include "BCollisionManager.h"
 #include "BUIManager.h"
+#include "BFmod.h"
 
 namespace blue
 {
@@ -30,6 +31,7 @@ namespace blue
 		createBuffer(width, height);
 		initializeEtc();
 
+		Fmod::Initialize();
 		CollisionManager::Initialize();
 		UIManager::Initialize();
 		SceneManager::Initialize();

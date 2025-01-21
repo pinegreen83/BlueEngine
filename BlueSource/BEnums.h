@@ -28,7 +28,7 @@ namespace blue::enums
 	};
 
 	enum class eResourceType
-	{	
+	{
 		Texture,
 		AudioClip,
 		Animation,
