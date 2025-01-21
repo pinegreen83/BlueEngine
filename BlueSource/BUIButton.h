@@ -18,7 +18,10 @@ namespace blue
 		virtual void OnRender(HDC hdc) override;
 		virtual void OnClear() override;
 
+		virtual void ButtonClick();
+
 	private:
 		graphics::Texture* mTexture;
+		Event mOnClick;
 	};
 }

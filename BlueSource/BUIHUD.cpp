@@ -1,4 +1,5 @@
 #include "BUIHUD.h"
+#include "BResources.h"
 
 namespace blue
 {
@@ -15,7 +16,7 @@ namespace blue
 
 	void UIHUD::OnInit()
 	{
-
+		mTexture = Resources::Find<graphics::Texture>(L"HPBAR");
 	}
 
 	void UIHUD::OnActive()
@@ -40,7 +41,15 @@ namespace blue
 
 	void UIHUD::OnRender(HDC hdc)
 	{
-
+		TransparentBlt(hdc
+			, 0, 0
+			, mTexture->GetWidth()
+			, mTexture->GetHeight()
+			, mTexture->GetHdc()
+			, 0, 0
+			, mTexture->GetWidth() / 2.0f
+			, mTexture->GetHeight()
+			, RGB(255, 0, 255));
 	}
 
 	void UIHUD::OnClear()

@@ -1,6 +1,7 @@
 #include "BPlayScene.h"
 #include "BGameObject.h"
 #include "BPlayer.h"
+#include "BUIManager.h"
 #include "BTransform.h"
 #include "BSpriteRenderer.h"
 #include "BInput.h"
@@ -49,7 +50,6 @@ namespace blue
 		PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
 
 		BoxCollider2D* collider = mPlayer->AddComponent<BoxCollider2D>();
-		//CircleCollider2D* collider = mPlayer->AddComponent<CircleCollider2D>();
 		collider->SetOffset(Vector2(-50.0f, -50.0f));
 
 		graphics::Texture* playerTex = Resources::Find<graphics::Texture>(L"Player");
@@ -63,8 +63,6 @@ namespace blue
 		playerAnimator->GetCompleteEvent(L"FrontGiveWater") = std::bind(&PlayerScript::AttackEffect, plScript);
 
 		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(300.0f, 250.0f));
-		//mPlayer->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
-
 		mPlayer->AddComponent<Rigidbody>();
 
 		Floor* floor = object::Instantiate<Floor>(eLayerType::Floor, Vector2(100.0f, 600.0f));
@@ -95,8 +93,6 @@ namespace blue
 	void PlayScene::Render(HDC hdc)
 	{
 		Scene::Render(hdc);
-		//wchar_t str[50] = L"Play Scene";
-		//TextOut(hdc, 0, 0, str, 10);
 	}
 
 	void PlayScene::OnEnter()
@@ -105,10 +101,14 @@ namespace blue
 
 		CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Animal, true);
 		CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Floor, true);
+
+		UIManager::Push(eUIType::Button);
 	}
 
 	void PlayScene::OnExit()
 	{
+		UIManager::Pop(eUIType::Button);
+
 		Scene::OnExit();
 	}
 }

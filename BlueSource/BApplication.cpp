@@ -4,6 +4,7 @@
 #include "BSceneManager.h"
 #include "BResources.h"
 #include "BCollisionManager.h"
+#include "BUIManager.h"
 
 namespace blue
 {
@@ -30,6 +31,7 @@ namespace blue
 		initializeEtc();
 
 		CollisionManager::Initialize();
+		UIManager::Initialize();
 		SceneManager::Initialize();
 	}
 
@@ -46,13 +48,16 @@ namespace blue
 	{
 		Input::Update();
 		Time::Update();
+
 		CollisionManager::Update();
+		UIManager::Update();
 		SceneManager::Update();
 	}
 	
 	void Application::LateUpdate()
 	{
 		CollisionManager::LateUpdate();
+		UIManager::LateUpdate();
 		SceneManager::LateUpdate();
 	}
 
@@ -62,6 +67,7 @@ namespace blue
 
 		Time::Render(mBackHdc);
 		CollisionManager::Render(mBackHdc);
+		UIManager::Render(mBackHdc);
 		SceneManager::Render(mBackHdc);
 
 		copyRenderTarget(mBackHdc, mHdc);
@@ -75,6 +81,7 @@ namespace blue
 	void Application::Release()
 	{
 		SceneManager::Release();
+		UIManager::Release();
 		Resources::Release();
 	}
 
@@ -92,7 +99,8 @@ namespace blue
 
 	void Application::copyRenderTarget(HDC source, HDC dest)
 	{
-		BitBlt(dest, 0, 0, mWidth, mHeight, source, 0, 0, SRCCOPY);
+		BitBlt(dest, 0, 0, mWidth, mHeight
+				, source, 0, 0, SRCCOPY);
 	}
 
 	void Application::adjjustWindowRect(HWND hwnd, UINT width, UINT height)
@@ -115,7 +123,7 @@ namespace blue
 		// 윈도우 해상도에 맞는 백 버퍼(도화지) 생성
 		mBackBitmap = CreateCompatibleBitmap(mHdc, width, height);
 
-		// 백 버퍼를 가르킬 DC생성
+		// 백 버퍼를 가리킬 DC생성
 		mBackHdc = CreateCompatibleDC(mHdc);
 
 		HBITMAP oldBitmap = (HBITMAP)SelectObject(mBackHdc, mBackBitmap);

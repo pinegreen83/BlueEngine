@@ -1,4 +1,6 @@
 #include "BUIManager.h"
+#include "BUIHUD.h"
+#include "BUIButton.h"
 
 namespace blue
 {
@@ -9,7 +11,11 @@ namespace blue
 
 	void UIManager::Initialize()
 	{
+		UIHUD* hud = new UIHUD();
+		mUIs.insert(std::make_pair(eUIType::HpBar, hud));
 
+		UIButton* button = new UIButton();
+		mUIs.insert(std::make_pair(eUIType::Button, button));
 	}
 
 	void UIManager::OnLoad(eUIType type)
@@ -108,6 +114,15 @@ namespace blue
 		mActiveUI = nullptr;
 	}
 
+	void UIManager::Release()
+	{
+		for (auto iter : mUIs)
+		{
+			delete iter.second;
+			iter.second = nullptr;
+		}
+	}
+
 	void UIManager::Push(eUIType type)
 	{
 		mRequestUIQueue.push(type);
@@ -118,14 +133,43 @@ namespace blue
 		if (mUIBases.size() <= 0)
 			return;
 
+		std::stack<UIBase*> tempStack;
+
 		UIBase* uibase = nullptr;
 		while (mUIBases.size() > 0)
 		{
 			uibase = mUIBases.top();
 			mUIBases.pop();
 
+			if (uibase->GetType() != type)
+			{
+				tempStack.push(uibase);
+				continue;
+			}
 
+			if (uibase->IsFullScreen())
+			{
+				std::stack<UIBase*> uiBases = mUIBases;
+				while (!uiBases.empty())
+				{
+					UIBase* uiBase = uiBases.top();
+					uiBases.pop();
+					if (uiBase)
+					{
+						uiBase->Active();
+						break;
+					}
+				}
+			}
+		
+			uibase->UIClear();
+		}
 
+		while (tempStack.size() > 0)
+		{
+			uibase = tempStack.top();
+			tempStack.pop();
+			mUIBases.push(uibase);
 		}
 	}
 }

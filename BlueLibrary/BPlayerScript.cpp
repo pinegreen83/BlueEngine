@@ -8,8 +8,8 @@
 #include "BCatScript.h"
 #include "BObject.h"
 #include "BResources.h"
-#include "BCollider.h"
 #include "BRigidbody.h"
+#include "BUIManager.h"
 
 namespace blue
 {
@@ -170,7 +170,6 @@ namespace blue
 
 		Rigidbody* rb = GetOwner()->GetComponent<Rigidbody>();
 
-
 		if (Input::GetKey(eKeyCode::A))
 		{
 			//pos.x -= 100.0f * Time::DeltaTime();
@@ -193,7 +192,15 @@ namespace blue
 			rb->SetGround(false);
 		}
 
-		tr->SetPosition(pos);
+		if (Input::GetKeyDown(eKeyCode::I))
+		{
+			UIManager::Push(eUIType::HpBar);
+		}
+
+		if (Input::GetKeyDown(eKeyCode::O))
+		{
+			UIManager::Pop(eUIType::HpBar);
+		}
 	}
 
 	void PlayerScript::move()
@@ -226,9 +233,10 @@ namespace blue
 			rb->AddForce(Vector2(0.0f, -200.0f));
 		}
 
-		tr->SetPosition(pos);
+		//tr->SetPosition(pos);
 
-		if (Input::GetKeyUp(eKeyCode::A) || Input::GetKeyUp(eKeyCode::D) || Input::GetKeyUp(eKeyCode::W) || Input::GetKeyUp(eKeyCode::S))
+		if (Input::GetKeyUp(eKeyCode::A) || Input::GetKeyUp(eKeyCode::D) 
+				|| Input::GetKeyUp(eKeyCode::W) || Input::GetKeyUp(eKeyCode::S))
 		{
 			mState = eState::Idle;
 			mAnimator->PlayAnimation(L"SitDown", false);

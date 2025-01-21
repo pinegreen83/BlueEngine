@@ -2,7 +2,9 @@
 
 namespace blue
 {
-	UIBase::UIBase()
+	UIBase::UIBase(eUIType type)
+		: mType(type)
+		, mbMouseOn(false)
 	{
 
 	}
@@ -14,37 +16,42 @@ namespace blue
 
 	void UIBase::Initialize()
 	{
-
+		OnInit();
 	}
 
 	void UIBase::Active()
 	{
-
+		mbEnabled = true;
+		OnActive();
 	}
 
 	void UIBase::InActive()
 	{
-
+		mbEnabled = false;
+		OnInActive();
 	}
 
 	void UIBase::Update()
 	{
-
+		if(mbEnabled)
+			OnUpdate();
 	}
 
 	void UIBase::LateUpdate()
 	{
-
+		if (mbEnabled)
+			OnLateUpdate();
 	}
 
 	void UIBase::Render(HDC hdc)
 	{
-
+		if (mbEnabled)
+			OnRender(hdc);
 	}
 
 	void UIBase::UIClear()
 	{
-
+		OnClear();
 	}
 
 	void UIBase::OnInit()

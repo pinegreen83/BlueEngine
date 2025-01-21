@@ -7,8 +7,23 @@ namespace blue
 	class UIBase : public Entity
 	{
 	public:
-		UIBase();
-		~UIBase();
+		struct Event
+		{
+			void operator=(std::function<void()> func)
+			{
+				mEvent = std::move(func);
+			}
+
+			void operator()()
+			{
+				if (mEvent)
+					mEvent();
+			}
+			std::function<void()> mEvent;
+		};
+
+		UIBase(eUIType type);
+		virtual ~UIBase();
 		
 		void Initialize();
 		void Active();
@@ -38,12 +53,14 @@ namespace blue
 		Vector2 GetSize() { return mSize; }
 		void SetSize(Vector2 size) { mSize = size; }
 
+	protected:
+		Vector2 mPosition;
+		Vector2 mSize;
+		bool mbMouseOn;
+
 	private:
 		eUIType mType;
 		bool mbFullScreen;
 		bool mbEnabled;
-
-		Vector2 mPosition;
-		Vector2 mSize;
 	};
 }

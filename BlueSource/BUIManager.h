@@ -16,6 +16,7 @@ namespace blue
 		static void Render(HDC hdc);
 		static void OnComplete(UIBase* addUI);
 		static void OnFail();
+		static void Release();
 
 		static void Push(eUIType type);
 		static void Pop(eUIType type);
