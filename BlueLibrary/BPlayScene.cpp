@@ -24,6 +24,9 @@
 #include "BRigidbody.h"
 #include "BFloor.h"
 #include "BFloorScript.h"
+#include "BAudioClip.h"
+#include "BAudioListener.h"
+#include "BAudioSource.h"
 
 namespace blue
 {
@@ -46,6 +49,7 @@ namespace blue
 
 		mPlayer = object::Instantiate<Player>(enums::eLayerType::Player);
 		object::DontDestroyOnLoad(mPlayer);
+		mPlayer->AddComponent<AudioListener>();
 
 		PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
 
@@ -67,11 +71,16 @@ namespace blue
 
 		Floor* floor = object::Instantiate<Floor>(eLayerType::Floor, Vector2(100.0f, 600.0f));
 		floor->SetName(L"Floor");
+		AudioSource* as = floor->AddComponent<AudioSource>();
+
 		BoxCollider2D* floorCol = floor->AddComponent<BoxCollider2D>();
 		floorCol->SetSize(Vector2(3.0f, 1.0f));
 		floor->AddComponent<FloorScript>();
 
-		
+		AudioClip* ac = Resources::Load<AudioClip>(L"BGSound", L"../Resources/Sound/smw_bonus_game_end.wav");
+		as->SetClip(ac);
+		as->Play();
+
 		Scene::Initialize();
 	}
 

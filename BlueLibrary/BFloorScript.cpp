@@ -6,6 +6,7 @@
 #include "BAnimator.h"
 #include "BObject.h"
 #include "BRigidbody.h"
+#include "BAudioSource.h"
 
 namespace blue
 {
@@ -60,6 +61,7 @@ namespace blue
 			playerTr->SetPosition(playerPos);
 		}
 
+		GetOwner()->GetComponent<AudioSource>()->Play();
 		playerRb->SetGround(true);
 	}
 
