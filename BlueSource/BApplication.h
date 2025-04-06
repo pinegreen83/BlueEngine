@@ -1,5 +1,6 @@
 #pragma once
 #include "BGameObject.h"
+#include "BGraphicDevice_DX11.h"
 
 namespace blue
 {
@@ -31,6 +32,8 @@ namespace blue
 		void initializeEtc();
 
 	private:
+		std::unique_ptr<graphics::GraphicDevice_DX11> mGraphicDevice;
+
 		HWND mHwnd;
 		HDC mHdc;
 

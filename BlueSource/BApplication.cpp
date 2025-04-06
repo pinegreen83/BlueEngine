@@ -31,6 +31,8 @@ namespace blue
 		createBuffer(width, height);
 		initializeEtc();
 
+		mGraphicDevice = std::make_unique<graphics::GraphicDevice_DX11>();
+
 		Fmod::Initialize();
 		CollisionManager::Initialize();
 		UIManager::Initialize();
@@ -93,7 +95,7 @@ namespace blue
 		HBRUSH greyBrush = (HBRUSH)CreateSolidBrush(RGB(128, 128, 128));
 		HBRUSH oldBrush = (HBRUSH)SelectObject(mBackHdc, greyBrush);
 
-		Rectangle(mBackHdc, -1, -1, 1601, 901);
+		::Rectangle(mBackHdc, -1, -1, 1601, 901);
 
 		SelectObject(mBackHdc, oldBrush);
 		DeleteObject(greyBrush);

@@ -31,6 +31,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)BEnums.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BFmod.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BGameObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)BGraphicDevice_DX11.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BInput.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BMath.h" />
@@ -70,6 +71,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)BEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BFmod.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BGameObject.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)BGraphicDevice_DX11.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BInput.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BMath.cpp" />

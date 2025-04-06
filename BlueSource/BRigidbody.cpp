@@ -37,9 +37,9 @@ namespace blue
 		if (mbGround)
 		{
 			Vector2 gravity = mGravity;
-			gravity.normalize();
+			gravity.Normalize();
 
-			float dot = Vector2::Dot(mVelocity, gravity);
+			float dot = mVelocity.Dot(gravity);
 			mVelocity -= gravity * dot;
 		}
 		else
@@ -48,20 +48,20 @@ namespace blue
 		}
 
 		Vector2 gravity = mGravity;
-		gravity.normalize();
-		float dot = Vector2::Dot(mVelocity, gravity);
+		gravity.Normalize();
+		float dot = mVelocity.Dot(gravity);
 		gravity = gravity * dot;
 
 		Vector2 sideVelocity = mVelocity - gravity;
-		if (mLimitedVelocity.y < gravity.length())
+		if (mLimitedVelocity.y < gravity.Length())
 		{
-			gravity.normalize();
+			gravity.Normalize();
 			gravity *= mLimitedVelocity.y;
 		}
 
-		if (mLimitedVelocity.x < sideVelocity.length())
+		if (mLimitedVelocity.x < sideVelocity.Length())
 		{
-			sideVelocity.normalize();
+			sideVelocity.Normalize();
 			sideVelocity *= mLimitedVelocity.x;
 		}
 		mVelocity = gravity + sideVelocity;
@@ -69,9 +69,10 @@ namespace blue
 		if (!(mVelocity == Vector2::Zero))
 		{
 			Vector2 friction = -mVelocity;
-			friction = friction.normalize() * mFriction * mMass * Time::DeltaTime();
+			friction.Normalize();
+			friction = friction * mFriction * mMass * Time::DeltaTime();
 
-			if (mVelocity.length() <= friction.length())
+			if (mVelocity.Length() <= friction.Length())
 				mVelocity = Vector2::Zero;
 			else
 				mVelocity += friction;
@@ -82,7 +83,7 @@ namespace blue
 		pos = pos + mVelocity * Time::DeltaTime();
 		tr->SetPosition(pos);
 
-		mForce.clear();
+		mForce = Vector2::One;
 	}
 
 	void Rigidbody::LateUpdate()

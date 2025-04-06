@@ -13,9 +13,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)BEntity.cpp">
       <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)BMath.cpp">
-      <Filter>Common</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)BTime.cpp">
       <Filter>Helpers</Filter>
     </ClCompile>
@@ -109,6 +106,12 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)BAudioClip.cpp">
       <Filter>Resource\Audio</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)BGraphicDevice_DX11.cpp">
+      <Filter>GraphicDevice</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)BMath.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)BGameObject.h">
@@ -124,9 +127,6 @@
       <Filter>Common</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)BEntity.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)BMath.h">
       <Filter>Common</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)BTime.h">
@@ -225,6 +225,12 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)BAudioClip.h">
       <Filter>Resource\Audio</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)BGraphicDevice_DX11.h">
+      <Filter>GraphicDevice</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)BMath.h">
+      <Filter>Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="GameObject">
@@ -307,6 +313,9 @@
     </Filter>
     <Filter Include="Resource\Audio">
       <UniqueIdentifier>{93e40578-7605-40f1-b9dd-9a7f7cdbd4ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicDevice">
+      <UniqueIdentifier>{00bf5e61-f6ee-4491-a5c6-fd37fd0d3bac}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

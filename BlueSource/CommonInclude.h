@@ -1,6 +1,7 @@
 #pragma once
 #include <Windows.h>
 #include <assert.h>
+#include <iostream>
 
 #include <vector>
 #include <algorithm>
@@ -23,3 +24,4 @@
 
 #include "BEnums.h"
 #include "BMath.h"
+#include <wrl.h>
