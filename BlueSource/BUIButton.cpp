@@ -74,6 +74,6 @@ namespace blue
 
     void UIButton::ButtonClick()
     {
-        //int a = 0;
+        int a = 0;
     }
 }

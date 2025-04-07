@@ -61,7 +61,11 @@ namespace blue
 			playerTr->SetPosition(playerPos);
 		}
 
-		GetOwner()->GetComponent<AudioSource>()->Play();
+		AudioSource* as = GetOwner()->GetComponent<AudioSource>();
+		//as->SetClip();
+		as->SetLoop(true);
+		as->Play();
+
 		playerRb->SetGround(true);
 	}
 

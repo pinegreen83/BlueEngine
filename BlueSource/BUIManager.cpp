@@ -11,11 +11,11 @@ namespace blue
 
 	void UIManager::Initialize()
 	{
-		UIHUD* hud = new UIHUD();
-		mUIs.insert(std::make_pair(eUIType::HpBar, hud));
+		//UIHUD* hud = new UIHUD();
+		//mUIs.insert(std::make_pair(eUIType::HpBar, hud));
 
-		UIButton* button = new UIButton();
-		mUIs.insert(std::make_pair(eUIType::Button, button));
+		//UIButton* button = new UIButton();
+		//mUIs.insert(std::make_pair(eUIType::Button, button));
 	}
 
 	void UIManager::OnLoad(eUIType type)
