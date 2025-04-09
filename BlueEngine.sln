@@ -42,7 +42,6 @@ Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		BlueSource\BlueSource.vcxitems*{0911bf3e-ebea-4607-b992-1d73e47e7ff2}*SharedItemsImports = 9
 		BlueSource\BlueSource.vcxitems*{7a373685-c157-4d64-9a8c-0804ecf2fa79}*SharedItemsImports = 4
-		Shaders_SOURCE\Shaders_SOURCE.vcxitems*{7a373685-c157-4d64-9a8c-0804ecf2fa79}*SharedItemsImports = 4
 		Shaders_SOURCE\Shaders_SOURCE.vcxitems*{c59a1e8e-8c61-4cb9-af8c-4a4cc8100a33}*SharedItemsImports = 9
 	EndGlobalSection
 EndGlobal

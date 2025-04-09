@@ -32,6 +32,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)BFmod.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BGraphicDevice_DX11.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)BGraphics.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BInput.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BMath.h" />

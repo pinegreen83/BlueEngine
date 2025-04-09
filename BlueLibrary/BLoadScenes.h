@@ -8,7 +8,7 @@ namespace blue
 {
 	void LoadScenes()
 	{
-		//SceneManager::CreateScene<TItleScene>(L"TitleScene");
+		SceneManager::CreateScene<TItleScene>(L"TitleScene");
 		SceneManager::CreateScene<PlayScene>(L"PlayScene");
 		//SceneManager::CreateScene<ToolScene>(L"ToolScene");
 

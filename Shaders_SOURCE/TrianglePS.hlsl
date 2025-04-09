@@ -10,7 +10,7 @@ struct VS_Output
     float4 color : COLOR;
 };
 
-float4 main(VS_Output output) : SV_TARGET
+float4 main(VS_Output output) : SV_Target
 {
     return output.color;
 }

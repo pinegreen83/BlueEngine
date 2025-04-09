@@ -1,4 +1,5 @@
 #include "BApplication.h"
+#include "BRenderer.h"
 #include "BInput.h"
 #include "BTime.h"
 #include "BSceneManager.h"
@@ -32,6 +33,7 @@ namespace blue
 		initializeEtc();
 
 		mGraphicDevice = std::make_unique<graphics::GraphicDevice_DX11>();
+		renderer::Initialize();
 		mGraphicDevice->Initialize();
 
 		Fmod::Initialize();
@@ -89,6 +91,8 @@ namespace blue
 		SceneManager::Release();
 		UIManager::Release();
 		Resources::Release();
+
+		renderer::Release();
 	}
 
 	void Application::clearRenderTarget()

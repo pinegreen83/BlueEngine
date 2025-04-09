@@ -24,4 +24,4 @@
 
 #include "BEnums.h"
 #include "BMath.h"
-#include <wrl.h>
+#include "BGraphics.h"
