@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BlueLibrary", "BlueLibrary\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BlueSource", "BlueSource\BlueSource.vcxitems", "{0911BF3E-EBEA-4607-B992-1D73E47E7FF2}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Shaders_SOURCE", "Shaders_SOURCE\Shaders_SOURCE.vcxitems", "{C59A1E8E-8C61-4CB9-AF8C-4A4CC8100A33}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -40,5 +42,7 @@ Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		BlueSource\BlueSource.vcxitems*{0911bf3e-ebea-4607-b992-1d73e47e7ff2}*SharedItemsImports = 9
 		BlueSource\BlueSource.vcxitems*{7a373685-c157-4d64-9a8c-0804ecf2fa79}*SharedItemsImports = 4
+		Shaders_SOURCE\Shaders_SOURCE.vcxitems*{7a373685-c157-4d64-9a8c-0804ecf2fa79}*SharedItemsImports = 4
+		Shaders_SOURCE\Shaders_SOURCE.vcxitems*{c59a1e8e-8c61-4cb9-af8c-4a4cc8100a33}*SharedItemsImports = 9
 	EndGlobalSection
 EndGlobal
