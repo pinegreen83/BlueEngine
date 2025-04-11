@@ -116,12 +116,12 @@ namespace blue
 		//CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Animal, true);
 		//CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Floor, true);
 
-		UIManager::Push(eUIType::Button);
+		//UIManager::Push(eUIType::Button);
 	}
 
 	void PlayScene::OnExit()
 	{
-		UIManager::Pop(eUIType::Button);
+		//UIManager::Pop(eUIType::Button);
 
 		Scene::OnExit();
 	}

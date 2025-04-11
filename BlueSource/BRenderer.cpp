@@ -52,5 +52,7 @@ namespace blue::renderer
 		psBlob->Release();
 		psShader->Release();
 		inputLayouts->Release();
+		indexBuffer->Release();
+		constantBuffer->Release();
 	}
 }

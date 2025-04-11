@@ -12,9 +12,10 @@
 #include <bitset>
 #include <functional>
 #include <filesystem>
+#include <mutex>
+#include <thread>
 
 #include <mmsystem.h>
-//#include <wingdi.h>
 #include <dinput.h>
 #pragma comment(lib, "Msimg32.lib")
 #pragma comment(lib, "winmm.lib")

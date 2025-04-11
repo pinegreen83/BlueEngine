@@ -48,6 +48,9 @@
     <ClCompile Include="BFloorScript.cpp">
       <Filter>Scripts</Filter>
     </ClCompile>
+    <ClCompile Include="BLoadingScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BPlayScene.h">
@@ -68,7 +71,6 @@
     <ClInclude Include="BCatScript.h">
       <Filter>Scripts</Filter>
     </ClInclude>
-    <ClInclude Include="BLoadResources.h" />
     <ClInclude Include="BToolScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
@@ -83,6 +85,9 @@
     </ClInclude>
     <ClInclude Include="BFloorScript.h">
       <Filter>Scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="BLoadingScene.h">
+      <Filter>Scenes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

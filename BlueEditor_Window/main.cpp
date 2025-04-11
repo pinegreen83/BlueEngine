@@ -9,7 +9,6 @@
 #include "../BlueSource/BTexture.h"
 #include "../BlueSource/BSceneManager.h"
 
-#include "../BlueLibrary/BLoadResources.h"
 #include "../BlueLibrary/BLoadScenes.h"
 #include "../BlueLibrary/BToolScene.h"
 
@@ -152,7 +151,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
 
    //load Scenes
-   blue::LoadResources();
+   //blue::LoadResources(); -> LoadingScene에서 진행.
    blue::LoadScenes();
    
    InitToolScene(hInstance);
