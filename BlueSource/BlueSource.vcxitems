@@ -35,7 +35,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)BGraphics.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BInput.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BLayer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)BMaterial.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BMath.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)BMesh.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BResource.h" />
@@ -44,6 +46,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)BScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BScript.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)BShader.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BSpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BTexture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BTileMapRenderer.h" />
@@ -75,7 +78,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)BGraphicDevice_DX11.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BInput.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BLayer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)BMaterial.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BMath.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)BMesh.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BResource.cpp" />
@@ -84,6 +89,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)BScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BScript.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)BShader.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BSpriteRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BTexture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BTileMapRenderer.cpp" />

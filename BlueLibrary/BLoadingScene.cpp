@@ -8,26 +8,28 @@ namespace blue
 {
 	LoadingScene::LoadingScene()
 		: mbLoadCompleted(false)
+		, mMutualExclusion()
+		, mResourcesLoadThread()
 	{
 
 	}
 
 	LoadingScene::~LoadingScene()
 	{
-		delete mResourcesLoad;
-		mResourcesLoad = nullptr;
+		delete mResourcesLoadThread;
+		mResourcesLoadThread = nullptr;
 	}
 
 	void LoadingScene::Initialize()
 	{
-		mResourcesLoad = new std::thread(&LoadingScene::resourcesLoad, this, std::ref(mMutex));
+		mResourcesLoadThread = new std::thread(&LoadingScene::resourcesLoad, this, std::ref(mMutualExclusion));
 	}
 
 	void LoadingScene::Update()
 	{
 		if (mbLoadCompleted)
 		{
-			mResourcesLoad->join();
+			mResourcesLoadThread->join();
 
 			SceneManager::LoadScene(L"PlayScene");
 		}

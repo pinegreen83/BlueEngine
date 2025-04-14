@@ -107,10 +107,19 @@
       <Filter>Resource\Audio</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)BGraphicDevice_DX11.cpp">
-      <Filter>GraphicDevice</Filter>
+      <Filter>Graphics\GraphicDevice</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)BMath.cpp">
       <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)BMaterial.cpp">
+      <Filter>Resource\Material</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)BShader.cpp">
+      <Filter>Resource\Graphics\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)BMesh.cpp">
+      <Filter>Resource\Mesh</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -226,13 +235,22 @@
       <Filter>Resource\Audio</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)BGraphicDevice_DX11.h">
-      <Filter>GraphicDevice</Filter>
+      <Filter>Graphics\GraphicDevice</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)BMath.h">
       <Filter>Common</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)BGraphics.h">
       <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)BMaterial.h">
+      <Filter>Resource\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)BShader.h">
+      <Filter>Resource\Graphics\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)BMesh.h">
+      <Filter>Resource\Mesh</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -317,8 +335,23 @@
     <Filter Include="Resource\Audio">
       <UniqueIdentifier>{93e40578-7605-40f1-b9dd-9a7f7cdbd4ca}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GraphicDevice">
+    <Filter Include="Graphics">
+      <UniqueIdentifier>{839e79da-b12a-4090-bc80-3648f174cb46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\GraphicDevice">
       <UniqueIdentifier>{00bf5e61-f6ee-4491-a5c6-fd37fd0d3bac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Graphics">
+      <UniqueIdentifier>{8d2da43a-9fd9-4c83-b2ee-17664053a276}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Material">
+      <UniqueIdentifier>{aebfc88d-ebc0-4c85-9b4a-8bc3d0353f7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Mesh">
+      <UniqueIdentifier>{e3a173dc-4fea-436a-81d4-b6a3fbbfa04c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Graphics\Shader">
+      <UniqueIdentifier>{34ec2542-ed22-4125-974b-dba188a4634d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
