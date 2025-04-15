@@ -56,6 +56,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)BUIButton.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BUIHUD.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BUIManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)BVertexBuffer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
   </ItemGroup>
   <ItemGroup>
@@ -99,5 +100,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)BUIButton.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BUIHUD.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BUIManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)BVertexBuffer.cpp" />
   </ItemGroup>
 </Project>

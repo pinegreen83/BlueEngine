@@ -121,6 +121,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)BMesh.cpp">
       <Filter>Resource\Mesh</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)BVertexBuffer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)BGameObject.h">
@@ -252,6 +253,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)BMesh.h">
       <Filter>Resource\Mesh</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)BVertexBuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="GameObject">
