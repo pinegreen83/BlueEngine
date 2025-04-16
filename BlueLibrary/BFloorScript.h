@@ -12,7 +12,7 @@ namespace blue
 		void Initialize() override;
 		void Update() override;
 		void LateUpdate() override;
-		void Render(HDC hdc) override;
+		void Render() override;
 
 		void OnCollisionEnter(class Collider* other) override;
 		void OnCollisionStay(class Collider* other) override;

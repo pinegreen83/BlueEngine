@@ -30,7 +30,7 @@ namespace blue
 
 	}
 
-	void Transform::Render(HDC hdc)
+	void Transform::Render()
 	{
 
 	}

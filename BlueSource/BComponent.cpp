@@ -28,7 +28,7 @@ namespace blue
 
 	}
 
-	void Component::Render(HDC hdc)
+	void Component::Render()
 	{
 
 	}

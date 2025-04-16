@@ -35,7 +35,7 @@ namespace blue
 
 	}
 
-	void FloorScript::Render(HDC hdc)
+	void FloorScript::Render()
 	{
 
 	}
@@ -46,9 +46,9 @@ namespace blue
 		Transform* playerTr = other->GetOwner()->GetComponent<Transform>();
 		Collider* playerCol = other;
 
-		Rigidbody* floorRb = this->GetOwner()->GetComponent<Rigidbody>();
-		Transform* floorTr = this->GetOwner()->GetComponent<Transform>();
-		Collider* floorCol = this->GetOwner()->GetComponent<Collider>();
+		Rigidbody* floorRb = GetOwner()->GetComponent<Rigidbody>();
+		Transform* floorTr = GetOwner()->GetComponent<Transform>();
+		Collider* floorCol = GetOwner()->GetComponent<Collider>();
 
 		float len = fabs(playerTr->GetPosition().y - floorTr->GetPosition().y);
 		float scale = fabs(playerCol->GetSize().y * 100 / 2.0f - floorCol->GetSize().y * 100 / 2.0f);

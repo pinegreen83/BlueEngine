@@ -31,6 +31,7 @@
 namespace blue
 {
 	PlayScene::PlayScene()
+		: mPlayer(nullptr)
 	{
 
 	}
@@ -47,8 +48,8 @@ namespace blue
 		//Camera* cameraComp = camera->AddComponent<Camera>();
 		//renderer::mainCamera = cameraComp;
 
-		//mPlayer = object::Instantiate<Player>(enums::eLayerType::Player);
-		//object::DontDestroyOnLoad(mPlayer);
+		mPlayer = object::Instantiate<Player>(enums::eLayerType::Player);
+		object::DontDestroyOnLoad(mPlayer);
 		//mPlayer->AddComponent<AudioListener>();
 
 		//PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
@@ -104,9 +105,9 @@ namespace blue
 		}
 	}
 
-	void PlayScene::Render(HDC hdc)
+	void PlayScene::Render()
 	{
-		Scene::Render(hdc);
+		Scene::Render();
 	}
 
 	void PlayScene::OnEnter()

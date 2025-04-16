@@ -43,10 +43,10 @@ namespace blue
 			OnLateUpdate();
 	}
 
-	void UIBase::Render(HDC hdc)
+	void UIBase::Render()
 	{
 		if (mbEnabled)
-			OnRender(hdc);
+			OnRender();
 	}
 
 	void UIBase::UIClear()
@@ -79,7 +79,7 @@ namespace blue
 
 	}
 
-	void UIBase::OnRender(HDC hdc)
+	void UIBase::OnRender()
 	{
 
 	}

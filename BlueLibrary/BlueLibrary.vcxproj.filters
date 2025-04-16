@@ -18,7 +18,7 @@
     <ClCompile Include="BPlayScene.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="BTItleScene.cpp">
+    <ClCompile Include="BTitleScene.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
     <ClCompile Include="BPlayer.cpp">
@@ -56,7 +56,7 @@
     <ClInclude Include="BPlayScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="BTItleScene.h">
+    <ClInclude Include="BTitleScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
     <ClInclude Include="BPlayer.h">

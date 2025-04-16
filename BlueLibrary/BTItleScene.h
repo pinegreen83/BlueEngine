@@ -3,16 +3,16 @@
 
 namespace blue
 {
-	class TItleScene : public Scene
+	class TitleScene : public Scene
 	{
 	public:
-		TItleScene();
-		~TItleScene();
+		TitleScene();
+		~TitleScene();
 
 		void Initialize() override;
 		void Update() override;
 		void LateUpdate() override;
-		void Render(HDC hdc) override;
+		void Render() override;
 
 		void OnEnter() override;
 		void OnExit() override;

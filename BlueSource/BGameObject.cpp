@@ -67,14 +67,14 @@ namespace blue
 		}
 	}
 	
-	void GameObject::Render(HDC hdc)
+	void GameObject::Render()
 	{
 		for (Component* comp : mComponents)
 		{
 			if (comp == nullptr)
 				continue;
 
-			comp->Render(hdc);
+			comp->Render();
 		}
 	}
 

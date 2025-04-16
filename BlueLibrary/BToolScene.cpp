@@ -56,11 +56,11 @@ namespace blue
 		}
 	}
 
-	void ToolScene::Render(HDC hdc)
+	void ToolScene::Render()
 	{
-		Scene::Render(hdc);
+		Scene::Render();
 
-		renderGreed(hdc);
+		renderGreed();
 	}
 
 	void ToolScene::OnEnter()
@@ -173,29 +173,29 @@ namespace blue
 		fclose(pFile);
 	}
 
-	void ToolScene::renderGreed(HDC hdc)
+	void ToolScene::renderGreed()
 	{
-		for (size_t i = 0; i < 50; i++)
-		{
-			Vector2 pos = renderer::mainCamera->CalculatePosition
-			(
-				Vector2(TileMapRenderer::TileSize.x * i, 0.0f)
-			);
+		//for (size_t i = 0; i < 50; i++)
+		//{
+		//	Vector2 pos = renderer::mainCamera->CalculatePosition
+		//	(
+		//		Vector2(TileMapRenderer::TileSize.x * i, 0.0f)
+		//	);
 
-			MoveToEx(hdc, pos.x, 0, NULL);
-			LineTo(hdc, pos.x, 1000);
-		}
+		//	MoveToEx(hdc, pos.x, 0, NULL);
+		//	LineTo(hdc, pos.x, 1000);
+		//}
 
-		for (size_t i = 0; i < 50; i++)
-		{
-			Vector2 pos = renderer::mainCamera->CalculatePosition
-			(
-				Vector2(0.0f, TileMapRenderer::TileSize.y * i)
-			);
+		//for (size_t i = 0; i < 50; i++)
+		//{
+		//	Vector2 pos = renderer::mainCamera->CalculatePosition
+		//	(
+		//		Vector2(0.0f, TileMapRenderer::TileSize.y * i)
+		//	);
 
-			MoveToEx(hdc, 0, pos.y, NULL);
-			LineTo(hdc, 1000, pos.y);
-		}
+		//	MoveToEx(hdc, 0, pos.y, NULL);
+		//	LineTo(hdc, 1000, pos.y);
+		//}
 	}
 
 	void ToolScene::createTileObject()
@@ -242,20 +242,7 @@ LRESULT CALLBACK WndTileProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPar
 	case WM_PAINT:
 	{
 		PAINTSTRUCT ps;
-		HDC hdc = BeginPaint(hWnd, &ps);
-
-		blue::graphics::Texture* texture
-			= blue::Resources::Find<blue::graphics::Texture>(L"SpringFloor");
-
-		TransparentBlt(hdc
-			, 0, 0
-			, texture->GetWidth()
-			, texture->GetHeight()
-			, texture->GetHdc()
-			, 0, 0
-			, texture->GetWidth()
-			, texture->GetHeight()
-			, RGB(255, 0, 255));
+		/*HDC hdc = */BeginPaint(hWnd, &ps);
 
 		EndPaint(hWnd, &ps);
 	}

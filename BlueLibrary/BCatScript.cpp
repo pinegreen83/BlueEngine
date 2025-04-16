@@ -66,7 +66,7 @@ namespace blue
 
 	}
 
-	void CatScript::Render(HDC hdc)
+	void CatScript::Render()
 	{
 
 	}

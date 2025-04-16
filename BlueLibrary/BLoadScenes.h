@@ -2,7 +2,7 @@
 #include "../BlueSource/BSceneManager.h"
 #include "BLoadingScene.h"
 #include "BPlayScene.h"
-#include "BTItleScene.h"
+#include "BTitleScene.h"
 #include "BToolScene.h"
 
 namespace blue
@@ -10,7 +10,7 @@ namespace blue
 	void LoadScenes()
 	{
 		SceneManager::CreateScene<LoadingScene>(L"LoadingScene");
-		SceneManager::CreateScene<TItleScene>(L"TitleScene");
+		SceneManager::CreateScene<TitleScene>(L"TitleScene");
 		SceneManager::CreateScene<PlayScene>(L"PlayScene");
 		//SceneManager::CreateScene<ToolScene>(L"ToolScene");
 

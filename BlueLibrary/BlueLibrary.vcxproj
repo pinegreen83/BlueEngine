@@ -155,7 +155,7 @@ copy "$(SolutionDir)\External\Library\Fmod\Release\fmodstudio.dll" "$(SolutionDi
     <ClCompile Include="BPlayerScript.cpp" />
     <ClCompile Include="BPlayScene.cpp" />
     <ClCompile Include="BTile.cpp" />
-    <ClCompile Include="BTItleScene.cpp" />
+    <ClCompile Include="BTitleScene.cpp" />
     <ClCompile Include="BToolScene.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -169,7 +169,7 @@ copy "$(SolutionDir)\External\Library\Fmod\Release\fmodstudio.dll" "$(SolutionDi
     <ClInclude Include="BPlayerScript.h" />
     <ClInclude Include="BPlayScene.h" />
     <ClInclude Include="BTile.h" />
-    <ClInclude Include="BTItleScene.h" />
+    <ClInclude Include="BTitleScene.h" />
     <ClInclude Include="BToolScene.h" />
   </ItemGroup>
   <ItemGroup>

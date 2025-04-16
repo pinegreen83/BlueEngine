@@ -31,7 +31,7 @@ namespace blue
 
 		void Update();
 		void LateUpdate();
-		void Render(HDC hdc);
+		void Render();
 		
 		void UIClear();
 
@@ -40,7 +40,7 @@ namespace blue
 		virtual void OnInActive();
 		virtual void OnUpdate();
 		virtual void OnLateUpdate();
-		virtual void OnRender(HDC hdc);
+		virtual void OnRender();
 		virtual void OnClear();
 
 		eUIType GetType() { return mType; }

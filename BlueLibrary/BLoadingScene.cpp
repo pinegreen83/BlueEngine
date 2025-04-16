@@ -40,7 +40,7 @@ namespace blue
 
 	}
 
-	void LoadingScene::Render(HDC hdc)
+	void LoadingScene::Render()
 	{
 
 	}

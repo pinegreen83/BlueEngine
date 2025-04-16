@@ -73,10 +73,10 @@ namespace blue
 		//clearRenderTarget();
 		mGraphicDevice->Draw();
 
-		Time::Render(mBackHdc);
-		CollisionManager::Render(mBackHdc);
-		UIManager::Render(mBackHdc);
-		SceneManager::Render(mBackHdc);
+		Time::Render();
+		CollisionManager::Render();
+		UIManager::Render();
+		SceneManager::Render();
 
 		//copyRenderTarget(mBackHdc, mHdc);
 	}
@@ -118,7 +118,7 @@ namespace blue
 		mHwnd = hwnd;
 		mHdc = GetDC(mHwnd);
 
-		RECT rect = { 0, 0, width, height };
+		RECT rect = { 0, 0, (LONG)width, (LONG)height };
 		AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
 
 		mWidth = rect.right - rect.left;

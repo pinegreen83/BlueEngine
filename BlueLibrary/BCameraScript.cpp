@@ -56,7 +56,7 @@ namespace blue
 
 	}
 
-	void CameraScript::Render(HDC hdc)
+	void CameraScript::Render()
 	{
 
 	}

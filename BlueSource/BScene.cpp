@@ -51,7 +51,7 @@ namespace blue
 		}
 	}
 
-	void Scene::Render(HDC hdc)
+	void Scene::Render()
 	{
 
 		for (Layer* layer : mLayers)
@@ -59,7 +59,7 @@ namespace blue
 			if (layer == nullptr)
 				continue;
 
-			layer->Render(hdc);
+			layer->Render();
 		}
 	}
 

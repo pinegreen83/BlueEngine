@@ -34,7 +34,7 @@ namespace blue
 
 	}
 
-	void Collider::Render(HDC hdc)
+	void Collider::Render()
 	{
 
 	}

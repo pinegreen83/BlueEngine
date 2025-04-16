@@ -5,27 +5,27 @@
 
 namespace blue
 {
-	TItleScene::TItleScene()
+	TitleScene::TitleScene()
 	{
 
 	}
 	
-	TItleScene::~TItleScene()
+	TitleScene::~TitleScene()
 	{
 
 	}
 
-	void TItleScene::Initialize()
+	void TitleScene::Initialize()
 	{
 		Scene::Initialize();
 	}
 
-	void TItleScene::Update()
+	void TitleScene::Update()
 	{
 		Scene::Update();
 	}
 
-	void TItleScene::LateUpdate()
+	void TitleScene::LateUpdate()
 	{
 		Scene::LateUpdate();
 
@@ -35,19 +35,17 @@ namespace blue
 		}
 	}
 
-	void TItleScene::Render(HDC hdc)
+	void TitleScene::Render()
 	{
-		Scene::Render(hdc);
-		wchar_t str[50] = L"Title Scene";
-		TextOut(hdc, 0, 0, str, 11);
+		Scene::Render();
 	}
 
-	void TItleScene::OnEnter()
+	void TitleScene::OnEnter()
 	{
 		Scene::OnEnter();
 	}
 
-	void TItleScene::OnExit()
+	void TitleScene::OnExit()
 	{
 		Scene::OnExit();
 	}

@@ -21,8 +21,8 @@ namespace blue
 
 	}
 
-	void Cat::Render(HDC hdc)
+	void Cat::Render()
 	{
-		GameObject::Render(hdc);
+		GameObject::Render();
 	}
 }
