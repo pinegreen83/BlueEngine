@@ -9,6 +9,7 @@ namespace blue
 		Resource(enums::eResourceType type);
 		virtual ~Resource();
 
+		virtual HRESULT Save(const std::wstring& path) = 0;
 		virtual HRESULT Load(const std::wstring& path) = 0;
 
 		const std::wstring& GetPath() { return mPath; }

@@ -8,11 +8,13 @@ namespace blue::renderer
 {
 	Camera* mainCamera = nullptr;
 
-	std::vector<graphics::Vertex> vertexes = {};
+	std::vector<graphics::Vertex> vertices = {};
 	std::vector<UINT> indices;
 
-	graphics::VertexBuffer vertexBuffer;
-	graphics::IndexBuffer indexBuffer;
+	//graphics::VertexBuffer vertexBuffer;
+	//graphics::IndexBuffer indexBuffer;
+	Mesh* mesh = nullptr;
+
 	graphics::ConstantBuffer constantBuffers[(UINT)eCBType::End] = {};
 
 	ID3D11Buffer* constantBuffer = nullptr;
@@ -20,19 +22,24 @@ namespace blue::renderer
 
 	void LoadTriangleMesh()
 	{
-		renderer::vertexes.resize(3);
-		renderer::vertexes[0].pos = Vector3(0.0f, 0.5f, 0.0f);
-		renderer::vertexes[0].color = Vector4(0.0f, 1.0f, 0.0f, 1.0f);
+		mesh = new Mesh();
 
-		renderer::vertexes[1].pos = Vector3(0.5f, -0.5f, 0.0f);
-		renderer::vertexes[1].color = Vector4(1.0f, 0.0f, 0.0f, 1.0f);
+		renderer::vertices.resize(3);
+		renderer::vertices[0].pos = Vector3(0.0f, 0.5f, 0.0f);
+		renderer::vertices[0].color = Vector4(0.0f, 1.0f, 0.0f, 1.0f);
 
-		renderer::vertexes[2].pos = Vector3(-0.5f, -0.5f, 0.0f);
-		renderer::vertexes[2].color = Vector4(0.0f, 0.0f, 1.0f, 1.0f);
+		renderer::vertices[1].pos = Vector3(0.5f, -0.5f, 0.0f);
+		renderer::vertices[1].color = Vector4(1.0f, 0.0f, 0.0f, 1.0f);
+
+		renderer::vertices[2].pos = Vector3(-0.5f, -0.5f, 0.0f);
+		renderer::vertices[2].color = Vector4(0.0f, 0.0f, 1.0f, 1.0f);
 
 		indices.push_back(0);
 		indices.push_back(1);
 		indices.push_back(2);
+
+		mesh->CreateVB(vertices);
+		mesh->CreateIB(indices);
 	}
 
 	void LoadMeshes()
@@ -60,5 +67,6 @@ namespace blue::renderer
 	void Release()
 	{
 		inputLayouts->Release();
+		delete mesh;
 	}
 }

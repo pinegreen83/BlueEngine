@@ -11,6 +11,11 @@ namespace blue::graphics
 	{
 	}
 
+	HRESULT Shader::Save(const std::wstring& path)
+	{
+		return E_NOTIMPL;
+	}
+
 	HRESULT Shader::Load(const std::wstring& path)
 	{
 		int fileNameBeginOffset = path.rfind(L"\\") + 1;
