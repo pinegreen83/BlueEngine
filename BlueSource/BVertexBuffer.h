@@ -7,7 +7,7 @@ namespace blue::graphics
 	{
 	public:
 		VertexBuffer();
-		virtual ~VertexBuffer();
+		~VertexBuffer();
 
 		bool Create(const std::vector<Vertex>& vertexes);
 		void Bind();

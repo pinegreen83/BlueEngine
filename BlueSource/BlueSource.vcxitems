@@ -26,6 +26,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)BCollider.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BCollisionManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BComponent.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)BConstantBuffer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BDontDestroyOnLoad.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BEnums.h" />
@@ -33,6 +34,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)BGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BGraphicDevice_DX11.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BGraphics.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)BIndexBuffer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BInput.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BMaterial.h" />
@@ -72,11 +74,13 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)BCollider.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BCollisionManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BComponent.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)BConstantBuffer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BDontDestroyOnLoad.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BFmod.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BGraphicDevice_DX11.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)BIndexBuffer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BInput.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BMaterial.cpp" />

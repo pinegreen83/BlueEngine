@@ -3,6 +3,11 @@
 #include "BGraphicDevice_DX11.h"
 
 #include "BVertexBuffer.h"
+#include "BIndexBuffer.h"
+#include "BConstantBuffer.h"
+
+using namespace blue::math;
+using namespace blue::graphics;
 
 namespace blue::renderer
 {
@@ -12,9 +17,10 @@ namespace blue::renderer
 	extern std::vector<UINT> indices;
 
 	extern graphics::VertexBuffer vertexBuffer;
-	extern ID3D11Buffer* indexBuffer;
-	extern ID3D11Buffer* constantBuffer;
+	extern graphics::IndexBuffer indexBuffer;
+	extern graphics::ConstantBuffer constantBuffers[(UINT)eCBType::End];
 
+	extern ID3D11Buffer* constantBuffer;
 	extern ID3D11InputLayout* inputLayouts;
 
 	void Initialize();
