@@ -8,11 +8,6 @@ namespace blue::renderer
 {
 	Camera* mainCamera = nullptr;
 
-	std::vector<graphics::Vertex> vertices = {};
-	std::vector<UINT> indices;
-
-	//graphics::VertexBuffer vertexBuffer;
-	//graphics::IndexBuffer indexBuffer;
 	Mesh* mesh = nullptr;
 
 	graphics::ConstantBuffer constantBuffers[(UINT)eCBType::End] = {};
@@ -24,32 +19,74 @@ namespace blue::renderer
 	{
 		mesh = new Mesh();
 
-		renderer::vertices.resize(3);
-		renderer::vertices[0].pos = Vector3(0.0f, 0.5f, 0.0f);
-		renderer::vertices[0].color = Vector4(0.0f, 1.0f, 0.0f, 1.0f);
+		std::vector<graphics::Vertex> vertexes = {};
+		std::vector<UINT> indices = {};
 
-		renderer::vertices[1].pos = Vector3(0.5f, -0.5f, 0.0f);
-		renderer::vertices[1].color = Vector4(1.0f, 0.0f, 0.0f, 1.0f);
+		vertexes.resize(3);
+		vertexes[0].pos = Vector3(0.0f, 0.5f, 0.0f);
+		vertexes[0].color = Vector4(0.0f, 1.0f, 0.0f, 1.0f);
 
-		renderer::vertices[2].pos = Vector3(-0.5f, -0.5f, 0.0f);
-		renderer::vertices[2].color = Vector4(0.0f, 0.0f, 1.0f, 1.0f);
+		vertexes[1].pos = Vector3(0.5f, -0.5f, 0.0f);
+		vertexes[1].color = Vector4(1.0f, 0.0f, 0.0f, 1.0f);
+
+		vertexes[2].pos = Vector3(-0.5f, -0.5f, 0.0f);
+		vertexes[2].color = Vector4(0.0f, 0.0f, 1.0f, 1.0f);
 
 		indices.push_back(0);
 		indices.push_back(1);
 		indices.push_back(2);
 
-		mesh->CreateVB(vertices);
+		mesh->CreateVB(vertexes);
+		mesh->CreateIB(indices);
+	}
+
+	void LoadRectMesh()
+	{
+		mesh = new Mesh();
+		
+		std::vector<graphics::Vertex> vertexes = {};
+		std::vector<UINT> indices = {};
+
+		vertexes.resize(4);
+		vertexes[0].pos = Vector3(-0.5f, 0.5f, 0.0f);
+		vertexes[0].color = Vector4(0.0f, 1.0f, 0.0f, 1.0f);
+		vertexes[0].uv = Vector2(0.0f, 0.0f);
+
+		vertexes[1].pos = Vector3(0.5f, 0.5f, 0.0f);
+		vertexes[1].color = Vector4(1.0f, 0.0f, 0.0f, 1.0f);
+		vertexes[1].uv = Vector2(1.0f, 0.0f);
+
+		vertexes[2].pos = Vector3(-0.5f, -0.5f, 0.0f);
+		vertexes[2].pos = Vector3(0.5f, -0.5f, 0.0f);
+		vertexes[2].color = Vector4(0.0f, 0.0f, 1.0f, 1.0f);
+		vertexes[2].uv = Vector2(1.0f, 1.0f);
+
+		vertexes[3].pos = Vector3(-0.5f, -0.5f, 0.0f);
+		vertexes[3].color = Vector4(0.0f, 0.0f, 1.0f, 1.0f);
+		vertexes[3].uv = Vector2(0.0f, 1.0f);
+
+		indices.push_back(0);
+		indices.push_back(2);
+		indices.push_back(3);
+
+		indices.push_back(0);
+		indices.push_back(1);
+		indices.push_back(2);
+
+		mesh->CreateVB(vertexes);
 		mesh->CreateIB(indices);
 	}
 
 	void LoadMeshes()
 	{
 		LoadTriangleMesh();
+		LoadRectMesh();
 	}
 
 	void LoadShaders()
 	{
 		blue::Resources::Load<graphics::Shader>(L"TriangleShader", L"..\\Shaders_SOURCE\\Triangle");
+		blue::Resources::Load<graphics::Shader>(L"SpriteShader", L"..\\Shaders_SOURCE\\Sprite");
 	}
 
 	void LoadConstantBuffers()

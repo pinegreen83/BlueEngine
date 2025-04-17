@@ -27,6 +27,7 @@
 #include "BAudioClip.h"
 #include "BAudioListener.h"
 #include "BAudioSource.h"
+#include "BGraphicDevice_DX11.h"
 
 namespace blue
 {
@@ -108,6 +109,8 @@ namespace blue
 	void PlayScene::Render()
 	{
 		Scene::Render();
+
+		graphics::GetDevice()->Draw();
 	}
 
 	void PlayScene::OnEnter()

@@ -17,6 +17,7 @@ namespace blue
 		, mHeight(0)
 		, mBackHdc(NULL)
 		, mBackBitmap(NULL)
+		, mbLoaded(false)
 	{
 
     }
@@ -28,9 +29,8 @@ namespace blue
 
     void Application::Initialize(HWND hwnd, UINT width, UINT height)
 	{
-		adjjustWindowRect(hwnd, width, height);
-		createBuffer(width, height);
-		initializeEtc();
+		AdjustWindowRect(hwnd, width, height);
+		InitializeEtc();
 
 		mGraphicDevice = std::make_unique<graphics::GraphicDevice_DX11>();
 		renderer::Initialize();
@@ -42,8 +42,32 @@ namespace blue
 		SceneManager::Initialize();
 	}
 
+	void Application::AdjustWindowRect(HWND hwnd, UINT width, UINT height)
+	{
+		mHwnd = hwnd;
+		mHdc = GetDC(mHwnd);
+
+		RECT rect = { 0, 0, (LONG)width, (LONG)height };
+		::AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
+
+		mWidth = rect.right - rect.left;
+		mHeight = rect.bottom - rect.top;
+
+		SetWindowPos(hwnd, nullptr, 0, 0, mWidth, mHeight, 0);
+		ShowWindow(hwnd, true);
+	}
+
+	void Application::InitializeEtc()
+	{
+		Input::Initialize();
+		Time::Initialize();
+	}
+
 	void Application::Run()
 	{
+		if (mbLoaded == false)
+			mbLoaded = true;
+
 		Update();
 		LateUpdate();
 		Render();
@@ -70,15 +94,10 @@ namespace blue
 
 	void Application::Render()
 	{
-		//clearRenderTarget();
-		mGraphicDevice->Draw();
-
 		Time::Render();
 		CollisionManager::Render();
 		UIManager::Render();
 		SceneManager::Render();
-
-		//copyRenderTarget(mBackHdc, mHdc);
 	}
 
 	void Application::Destroy()
@@ -93,56 +112,5 @@ namespace blue
 		Resources::Release();
 
 		renderer::Release();
-	}
-
-	void Application::clearRenderTarget()
-	{
-		// clear
-		HBRUSH greyBrush = (HBRUSH)CreateSolidBrush(RGB(128, 128, 128));
-		HBRUSH oldBrush = (HBRUSH)SelectObject(mBackHdc, greyBrush);
-
-		::Rectangle(mBackHdc, -1, -1, 1601, 901);
-
-		SelectObject(mBackHdc, oldBrush);
-		DeleteObject(greyBrush);
-	}
-
-	void Application::copyRenderTarget(HDC source, HDC dest)
-	{
-		BitBlt(dest, 0, 0, mWidth, mHeight
-				, source, 0, 0, SRCCOPY);
-	}
-
-	void Application::adjjustWindowRect(HWND hwnd, UINT width, UINT height)
-	{
-		mHwnd = hwnd;
-		mHdc = GetDC(mHwnd);
-
-		RECT rect = { 0, 0, (LONG)width, (LONG)height };
-		AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
-
-		mWidth = rect.right - rect.left;
-		mHeight = rect.bottom - rect.top;
-
-		SetWindowPos(mHwnd, nullptr, 0, 0, mWidth, mHeight, 0);
-		ShowWindow(mHwnd, true);
-	}
-
-	void Application::createBuffer(UINT width, UINT height)
-	{
-		// 윈도우 해상도에 맞는 백 버퍼(도화지) 생성
-		mBackBitmap = CreateCompatibleBitmap(mHdc, width, height);
-
-		// 백 버퍼를 가리킬 DC생성
-		mBackHdc = CreateCompatibleDC(mHdc);
-
-		HBITMAP oldBitmap = (HBITMAP)SelectObject(mBackHdc, mBackBitmap);
-		DeleteObject(oldBitmap);
-	}
-
-	void Application::initializeEtc()
-	{
-		Input::Initialize();
-		Time::Initialize();
 	}
 }
