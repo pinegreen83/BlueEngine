@@ -75,7 +75,7 @@ namespace blue
 
 		m.lock();
 		{
-			Resources::Load<graphics::Texture>(L"Player", L"..\\Resources\\1.bmp");
+			Resources::Load<graphics::Texture>(L"Player", L"..\\Resources\\CygnusGarden.png");
 		}
 		m.unlock();
 

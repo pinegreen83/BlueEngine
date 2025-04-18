@@ -43,8 +43,13 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, // 프로그램의 인스턴스 
     //_CrtSetBreakAlloc(253);
 
     // TODO: 여기에 코드를 입력합니다.
+    if (FAILED(CoInitializeEx(nullptr, COINIT_MULTITHREADED))) {
+        MessageBox(nullptr, L"COM 초기화 실패", L"Error", MB_ICONERROR);
+        return -1;
+    }
 
     // 전역 문자열을 초기화합니다.
+    _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
     LoadStringW(hInstance, IDC_EDITORWINDOW, szWindowClass, MAX_LOADSTRING);
     MyRegisterClass(hInstance, szWindowClass, WndProc);
@@ -80,6 +85,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, // 프로그램의 인스턴스 
         }
     }
 
+    CoUninitialize();
     application.Release();
 
     return (int) msg.wParam;
