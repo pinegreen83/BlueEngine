@@ -130,6 +130,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)BConstantBuffer.cpp">
       <Filter>Graphics\GpuBuffer</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)BInputLayout.cpp">
+      <Filter>Graphics\InputLayout</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)BGameObject.h">
@@ -270,6 +273,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)BConstantBuffer.h">
       <Filter>Graphics\GpuBuffer</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)BInputLayout.h">
+      <Filter>Graphics\InputLayout</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="GameObject">
@@ -373,6 +379,9 @@
     </Filter>
     <Filter Include="Graphics\GpuBuffer">
       <UniqueIdentifier>{9e54d8bd-429f-4fd9-b1e2-3b399d84d35e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\InputLayout">
+      <UniqueIdentifier>{0832d602-5b4c-4cb5-9c23-79f4ca15f8a2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

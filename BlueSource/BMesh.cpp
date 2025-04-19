@@ -4,6 +4,8 @@ namespace blue
 {
 	Mesh::Data::Data()
 		: mTopology(D3D11_PRIMITIVE_TOPOLOGY::D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST)
+		, vertices{}
+		, indices{}
 	{
 
 	}
@@ -45,8 +47,15 @@ namespace blue
 		return mIB.Create(indices);
 	}
 
+	void Mesh::SetVertexBufferParams(UINT vertexCount, D3D11_INPUT_ELEMENT_DESC* layout, const void* pShaderBytecodeWithInputSignature, SIZE_T BytecodeLength)
+	{
+		mInputLayout.CreateInputLayout(vertexCount, layout, pShaderBytecodeWithInputSignature, BytecodeLength);
+	}
+
 	void Mesh::Bind()
 	{
+		mInputLayout.Bind();
+
 		mVB.Bind();
 		mIB.Bind();
 

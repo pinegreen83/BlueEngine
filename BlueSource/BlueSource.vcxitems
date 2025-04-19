@@ -36,6 +36,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)BGraphics.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BIndexBuffer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)BInputLayout.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BMaterial.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BMath.h" />
@@ -82,6 +83,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)BGraphicDevice_DX11.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BIndexBuffer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)BInputLayout.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BMaterial.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BMath.cpp" />

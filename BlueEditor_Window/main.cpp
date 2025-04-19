@@ -44,8 +44,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, // 프로그램의 인스턴스 
 
     // TODO: 여기에 코드를 입력합니다.
     if (FAILED(CoInitializeEx(nullptr, COINIT_MULTITHREADED))) {
-        MessageBox(nullptr, L"COM 초기화 실패", L"Error", MB_ICONERROR);
-        return -1;
+        assert(false);
     }
 
     // 전역 문자열을 초기화합니다.

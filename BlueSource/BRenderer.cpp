@@ -9,13 +9,8 @@
 namespace blue::renderer
 {
 	Camera* mainCamera = nullptr;
-
-	Mesh* mesh = nullptr;
-
 	ConstantBuffer constantBuffers[(UINT)eCBType::End] = {};
 	Microsoft::WRL::ComPtr<ID3D11SamplerState> samplerStates[(UINT)eSamplerType::End] = {};
- 
-	Microsoft::WRL::ComPtr<ID3D11InputLayout> inputLayout = nullptr;
 
 	void LoadStates()
 	{
@@ -83,6 +78,24 @@ namespace blue::renderer
 		indices.push_back(1);
 		indices.push_back(2);
 
+		D3D11_INPUT_ELEMENT_DESC inputLayoutDesces[2] = {};
+		inputLayoutDesces[0].AlignedByteOffset = 0;
+		inputLayoutDesces[0].Format = DXGI_FORMAT_R32G32B32_FLOAT;
+		inputLayoutDesces[0].InputSlot = 0;
+		inputLayoutDesces[0].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
+		inputLayoutDesces[0].SemanticName = "POSITION";
+		inputLayoutDesces[0].SemanticIndex = 0;
+
+		inputLayoutDesces[1].AlignedByteOffset = 12;
+		inputLayoutDesces[1].Format = DXGI_FORMAT_R32G32B32A32_FLOAT;
+		inputLayoutDesces[1].InputSlot = 0;
+		inputLayoutDesces[1].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
+		inputLayoutDesces[1].SemanticName = "COLOR";
+		inputLayoutDesces[1].SemanticIndex = 0;
+
+		graphics::Shader* triangleShader = Resources::Find<graphics::Shader>(L"TriangleShader");
+		mesh->SetVertexBufferParams(2, inputLayoutDesces, triangleShader->GetVSBlob()->GetBufferPointer(), triangleShader->GetVSBlob()->GetBufferSize());
+
 		mesh->CreateVB(vertexes);
 		mesh->CreateIB(indices);
 
@@ -122,16 +135,35 @@ namespace blue::renderer
 		indices.push_back(1);
 		indices.push_back(2);
 
+		D3D11_INPUT_ELEMENT_DESC inputLayoutDesces[3] = {};
+		inputLayoutDesces[0].AlignedByteOffset = 0;
+		inputLayoutDesces[0].Format = DXGI_FORMAT_R32G32B32_FLOAT;
+		inputLayoutDesces[0].InputSlot = 0;
+		inputLayoutDesces[0].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
+		inputLayoutDesces[0].SemanticName = "POSITION";
+		inputLayoutDesces[0].SemanticIndex = 0;
+
+		inputLayoutDesces[1].AlignedByteOffset = 12;
+		inputLayoutDesces[1].Format = DXGI_FORMAT_R32G32B32A32_FLOAT;
+		inputLayoutDesces[1].InputSlot = 0;
+		inputLayoutDesces[1].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
+		inputLayoutDesces[1].SemanticName = "COLOR";
+		inputLayoutDesces[1].SemanticIndex = 0;
+
+		inputLayoutDesces[2].AlignedByteOffset = 28;
+		inputLayoutDesces[2].Format = DXGI_FORMAT_R32G32_FLOAT;
+		inputLayoutDesces[2].InputSlot = 0;
+		inputLayoutDesces[2].InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
+		inputLayoutDesces[2].SemanticName = "TEXCOORD";
+		inputLayoutDesces[2].SemanticIndex = 0;
+
+		graphics::Shader* spriteShader = Resources::Find<graphics::Shader>(L"SpriteShader");
+		mesh->SetVertexBufferParams(3, inputLayoutDesces, spriteShader->GetVSBlob()->GetBufferPointer(), spriteShader->GetVSBlob()->GetBufferSize());
+
 		mesh->CreateVB(vertexes);
 		mesh->CreateIB(indices);
 
 		blue::Resources::Insert(L"RectMesh", mesh);
-	}
-
-	void LoadMeshes()
-	{
-		LoadTriangleMesh();
-		LoadRectMesh();
 	}
 
 	void LoadShaders()
@@ -140,8 +172,19 @@ namespace blue::renderer
 		blue::Resources::Load<graphics::Shader>(L"SpriteShader", L"..\\Shaders_SOURCE\\Sprite");
 	}
 
+	void LoadMeshes()
+	{
+		//LoadTriangleMesh();
+		LoadRectMesh();
+	}
+
 	void LoadMaterials()
 	{
+		Material* triangleMaterial = new Material();
+		blue::Resources::Insert(L"TriangleMaterial", triangleMaterial);
+
+		triangleMaterial->SetShader(blue::Resources::Find<graphics::Shader>(L"TriangleShader"));
+
 		Material* spriteMaterial = new Material();
 		blue::Resources::Insert(L"SpriteMaterial", spriteMaterial);
 
@@ -156,15 +199,14 @@ namespace blue::renderer
 	void Initialize()
 	{
 		LoadStates();
-		LoadMeshes();
 		LoadShaders();
+		LoadMeshes();
 		LoadMaterials();
 		LoadConstantBuffers();
 	}
 
 	void Release()
 	{
-		//if (inputLayout)
-		//	inputLayout->Release();
+
 	}
 }
