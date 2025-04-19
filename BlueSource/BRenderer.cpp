@@ -2,7 +2,9 @@
 #include "BGraphicDevice_DX11.h"
 
 #include "BResources.h"
+#include "BMesh.h"
 #include "BShader.h"
+#include "BMaterial.h"
 
 namespace blue::renderer
 {
@@ -13,8 +15,7 @@ namespace blue::renderer
 	ConstantBuffer constantBuffers[(UINT)eCBType::End] = {};
 	Microsoft::WRL::ComPtr<ID3D11SamplerState> samplerStates[(UINT)eSamplerType::End] = {};
  
-	ID3D11Buffer* constantBuffer = nullptr;
-	ID3D11InputLayout* inputLayouts = nullptr;
+	Microsoft::WRL::ComPtr<ID3D11InputLayout> inputLayout = nullptr;
 
 	void LoadStates()
 	{
@@ -63,7 +64,7 @@ namespace blue::renderer
 
 	void LoadTriangleMesh()
 	{
-		mesh = new Mesh();
+		Mesh* mesh = new Mesh();
 
 		std::vector<graphics::Vertex> vertexes = {};
 		std::vector<UINT> indices = {};
@@ -84,11 +85,13 @@ namespace blue::renderer
 
 		mesh->CreateVB(vertexes);
 		mesh->CreateIB(indices);
+
+		blue::Resources::Insert(L"TriangleMesh", mesh);
 	}
 
 	void LoadRectMesh()
 	{
-		mesh = new Mesh();
+		Mesh* mesh = new Mesh();
 		
 		std::vector<graphics::Vertex> vertexes = {};
 		std::vector<UINT> indices = {};
@@ -121,6 +124,8 @@ namespace blue::renderer
 
 		mesh->CreateVB(vertexes);
 		mesh->CreateIB(indices);
+
+		blue::Resources::Insert(L"RectMesh", mesh);
 	}
 
 	void LoadMeshes()
@@ -135,6 +140,14 @@ namespace blue::renderer
 		blue::Resources::Load<graphics::Shader>(L"SpriteShader", L"..\\Shaders_SOURCE\\Sprite");
 	}
 
+	void LoadMaterials()
+	{
+		Material* spriteMaterial = new Material();
+		blue::Resources::Insert(L"SpriteMaterial", spriteMaterial);
+
+		spriteMaterial->SetShader(blue::Resources::Find<graphics::Shader>(L"SpriteShader"));
+	}
+
 	void LoadConstantBuffers()
 	{
 		constantBuffers[(UINT)eCBType::Transform].Create(eCBType::Transform, sizeof(Vector4));
@@ -145,12 +158,13 @@ namespace blue::renderer
 		LoadStates();
 		LoadMeshes();
 		LoadShaders();
+		LoadMaterials();
 		LoadConstantBuffers();
 	}
 
 	void Release()
 	{
-		inputLayouts->Release();
-		delete mesh;
+		//if (inputLayout)
+		//	inputLayout->Release();
 	}
 }

@@ -33,6 +33,7 @@ namespace blue::enums
 	{
 		Texture,
 		Mesh,
+		Material,
 		Animation,
 		AudioClip,
 		Shader,
