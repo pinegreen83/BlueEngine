@@ -93,6 +93,14 @@ namespace blue::graphics
 		return true;
 	}
 
+	bool GraphicDevice_DX11::CreateSamplerState(const D3D11_SAMPLER_DESC* pSamplerDesc, ID3D11SamplerState** ppSamplerState)
+	{
+		if (FAILED(mDevice->CreateSamplerState(pSamplerDesc, ppSamplerState)))
+			return false;
+
+		return true;
+	}
+
 	bool GraphicDevice_DX11::CreateVertexShader(const std::wstring& fileName, ID3DBlob** ppCode, ID3D11VertexShader** ppVertexShader)
 	{
 		DWORD shaderFlags = D3DCOMPILE_ENABLE_STRICTNESS;
@@ -261,6 +269,33 @@ namespace blue::graphics
 		}
 	}
 
+	void GraphicDevice_DX11::BindSampler(eShaderStage stage, UINT StartSlot, UINT NumSamplers, ID3D11SamplerState* const* ppSamplers)
+	{
+		if (eShaderStage::VS == stage)
+			mContext->VSSetSamplers(StartSlot, NumSamplers, ppSamplers);
+
+		if (eShaderStage::HS == stage)
+			mContext->VSSetSamplers(StartSlot, NumSamplers, ppSamplers);
+
+		if (eShaderStage::DS == stage)
+			mContext->VSSetSamplers(StartSlot, NumSamplers, ppSamplers);
+
+		if (eShaderStage::GS == stage)
+			mContext->VSSetSamplers(StartSlot, NumSamplers, ppSamplers);
+
+		if (eShaderStage::PS == stage)
+			mContext->VSSetSamplers(StartSlot, NumSamplers, ppSamplers);
+	}
+
+	void GraphicDevice_DX11::BindSamplers(UINT StartSlot, UINT NumSamplers, ID3D11SamplerState* const* ppSamplers)
+	{
+		BindSampler(eShaderStage::VS, StartSlot, NumSamplers, ppSamplers);
+		BindSampler(eShaderStage::HS, StartSlot, NumSamplers, ppSamplers);
+		BindSampler(eShaderStage::DS, StartSlot, NumSamplers, ppSamplers);
+		BindSampler(eShaderStage::GS, StartSlot, NumSamplers, ppSamplers);
+		BindSampler(eShaderStage::PS, StartSlot, NumSamplers, ppSamplers);
+	}
+
 	void GraphicDevice_DX11::Initialize()
 	{
 #pragma region swapchain desc
@@ -382,6 +417,7 @@ namespace blue::graphics
 		BindConstantBuffer(eShaderStage::VS, eCBType::Transform, renderer::constantBuffer);
 
 		mContext->IASetInputLayout(renderer::inputLayouts);
+
 		renderer::mesh->Bind();
 
 		Vector4 pos = { 0.0f, 0.0f, 0.0f, 1.0f };
