@@ -5,6 +5,9 @@
 #include "BTexture.h"
 #include "BApplication.h"
 #include "BRenderer.h"
+#include "BSceneManager.h"
+#include "BTitleScene.h"
+#include "BPlayScene.h"
 
 extern blue::Application application;
 
@@ -79,6 +82,9 @@ namespace blue
 			Resources::Load<graphics::Texture>(L"Player", L"..\\Resources\\CygnusGarden.png");
 
 			renderer::Initialize();
+
+			SceneManager::CreateScene<TitleScene>(L"TitleScene");
+			SceneManager::CreateScene<PlayScene>(L"PlayScene");
 		}
 		m.unlock();
 

@@ -303,6 +303,41 @@ namespace blue::graphics
 		BindSampler(eShaderStage::PS, StartSlot, NumSamplers, ppSamplers);
 	}
 
+	void GraphicDevice_DX11::BindViewPort()
+	{
+		D3D11_VIEWPORT viewPort =
+		{
+			0, 0,
+			(float)application.GetWidth(), (float)application.GetHeight(),
+			0.0f, 1.0f
+		};
+
+		mContext->RSSetViewports(1, &viewPort);
+	}
+
+	void GraphicDevice_DX11::BindRenderTargets(UINT NumViews
+			, ID3D11RenderTargetView* const* ppRenderTargetViews
+			, ID3D11DepthStencilView* pDepthStencilView)
+	{
+		mContext->OMSetRenderTargets(NumViews, ppRenderTargetViews, pDepthStencilView);
+	}
+
+	void GraphicDevice_DX11::BindDefaultRenderTarget()
+	{
+		mContext->OMSetRenderTargets(1, mRenderTargetView.GetAddressOf(), mDepthStencilView.Get());
+	}
+
+	void GraphicDevice_DX11::ClearRenderTargetView()
+	{
+		FLOAT backgroundColor[4] = { 0.2f,0.2f,0.2f, 1.0f };
+		mContext->ClearRenderTargetView(mRenderTargetView.Get(), backgroundColor);
+	}
+
+	void GraphicDevice_DX11::ClearDepthStencilView()
+	{
+		mContext->ClearDepthStencilView(mDepthStencilView.Get(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
+	}
+
 	void GraphicDevice_DX11::Initialize()
 	{
 #pragma region swapchain desc
@@ -366,19 +401,6 @@ namespace blue::graphics
 
 	void GraphicDevice_DX11::Draw()
 	{
-		FLOAT backgroundColor[4] = { 0.2f, 0.2f, 0.2f, 1.0f };
-		mContext->ClearRenderTargetView(mRenderTargetView.Get(), backgroundColor);
-		mContext->ClearDepthStencilView(mDepthStencilView.Get(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.f, 0);
-
-		D3D11_VIEWPORT viewPort =
-		{
-			0, 0, 
-			(float)application.GetWidth(), (float)application.GetHeight(),
-			0.0f, 1.0f
-		};
-		mContext->RSSetViewports(1, &viewPort);
-		mContext->OMSetRenderTargets(1, mRenderTargetView.GetAddressOf(), mDepthStencilView.Get());
-
 		// Draw Rect
 		Mesh* mesh = Resources::Find<Mesh>(L"RectMesh");
 		mesh->Bind();
@@ -393,18 +415,25 @@ namespace blue::graphics
 		mContext->DrawIndexed(6, 0, 0);
 
 		// Draw Triangle
-		//mesh = Resources::Find<Mesh>(L"TriangleMesh");
-		//mesh->Bind();
+		mesh = Resources::Find<Mesh>(L"TriangleMesh");
+		mesh->Bind();
 
-		//pos = Vector4(0.2f, 0.0f, 0.0f, 1.0f);
-		//renderer::constantBuffers[(UINT)eCBType::Transform].SetData(&pos);
-		//renderer::constantBuffers[(UINT)eCBType::Transform].Bind(eShaderStage::VS);
+		pos = Vector4(0.2f, 0.0f, 0.0f, 1.0f);
+		renderer::constantBuffers[(UINT)eCBType::Transform].SetData(&pos);
+		renderer::constantBuffers[(UINT)eCBType::Transform].Bind(eShaderStage::VS);
 
-		//material = blue::Resources::Find<Material>(L"TriangleMaterial");
-		//material->Bind();
+		material = blue::Resources::Find<Material>(L"TriangleMaterial");
+		material->Bind();
 
-		//mContext->DrawIndexed(3, 0, 0);
+		mContext->DrawIndexed(3, 0, 0);
+	}
 
+	void GraphicDevice_DX11::DrawIndexed(UINT IndexCount, UINT StartIndexLocation, INT BaseVertexLocation)
+	{
+		mContext->DrawIndexed(IndexCount, StartIndexLocation, BaseVertexLocation);
+	}
+	void GraphicDevice_DX11::Present()
+	{
 		mSwapChain->Present(1, 0);
 	}
 }

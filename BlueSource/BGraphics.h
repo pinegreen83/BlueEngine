@@ -61,6 +61,7 @@ namespace blue::graphics
 		Specular,
 		Smoothness,
 		Metalic,
+		Sprite,
 		End,
 	};
 

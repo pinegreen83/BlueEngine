@@ -157,7 +157,7 @@ namespace blue::renderer
 		inputLayoutDesces[2].SemanticName = "TEXCOORD";
 		inputLayoutDesces[2].SemanticIndex = 0;
 
-		graphics::Shader* spriteShader = Resources::Find<graphics::Shader>(L"SpriteShader");
+		graphics::Shader* spriteShader = Resources::Find<graphics::Shader>(L"Sprite-Default-Shader");
 		mesh->SetVertexBufferParams(3, inputLayoutDesces, spriteShader->GetVSBlob()->GetBufferPointer(), spriteShader->GetVSBlob()->GetBufferSize());
 
 		mesh->CreateVB(vertexes);
@@ -169,7 +169,7 @@ namespace blue::renderer
 	void LoadShaders()
 	{
 		blue::Resources::Load<graphics::Shader>(L"TriangleShader", L"..\\Shaders_SOURCE\\Triangle");
-		blue::Resources::Load<graphics::Shader>(L"SpriteShader", L"..\\Shaders_SOURCE\\Sprite");
+		blue::Resources::Load<graphics::Shader>(L"Sprite-Default-Shader", L"..\\Shaders_SOURCE\\Sprite-Default");
 	}
 
 	void LoadMeshes()
@@ -187,8 +187,8 @@ namespace blue::renderer
 		Material* spriteMaterial = new Material();
 		graphics::Texture* texture = Resources::Find<graphics::Texture>(L"Player");
 		spriteMaterial->SetAlbedoTexture(texture);
-		spriteMaterial->SetShader(blue::Resources::Find<graphics::Shader>(L"SpriteShader"));
-		blue::Resources::Insert(L"SpriteMaterial", spriteMaterial);
+		spriteMaterial->SetShader(blue::Resources::Find<graphics::Shader>(L"Sprite-Default-Shader"));
+		blue::Resources::Insert(L"Sprite-Default-Material", spriteMaterial);
 	}
 
 	void LoadConstantBuffers()
