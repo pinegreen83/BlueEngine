@@ -4,6 +4,7 @@
 #include "BResources.h"
 #include "BTexture.h"
 #include "BApplication.h"
+#include "BRenderer.h"
 
 extern blue::Application application;
 
@@ -76,6 +77,8 @@ namespace blue
 		m.lock();
 		{
 			Resources::Load<graphics::Texture>(L"Player", L"..\\Resources\\CygnusGarden.png");
+
+			renderer::Initialize();
 		}
 		m.unlock();
 

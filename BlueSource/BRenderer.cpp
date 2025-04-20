@@ -174,21 +174,21 @@ namespace blue::renderer
 
 	void LoadMeshes()
 	{
-		//LoadTriangleMesh();
+		LoadTriangleMesh();
 		LoadRectMesh();
 	}
 
 	void LoadMaterials()
 	{
 		Material* triangleMaterial = new Material();
+		triangleMaterial->SetShader(blue::Resources::Find<graphics::Shader>(L"TriangleShader"));
 		blue::Resources::Insert(L"TriangleMaterial", triangleMaterial);
 
-		triangleMaterial->SetShader(blue::Resources::Find<graphics::Shader>(L"TriangleShader"));
-
 		Material* spriteMaterial = new Material();
-		blue::Resources::Insert(L"SpriteMaterial", spriteMaterial);
-
+		graphics::Texture* texture = Resources::Find<graphics::Texture>(L"Player");
+		spriteMaterial->SetAlbedoTexture(texture);
 		spriteMaterial->SetShader(blue::Resources::Find<graphics::Shader>(L"SpriteShader"));
+		blue::Resources::Insert(L"SpriteMaterial", spriteMaterial);
 	}
 
 	void LoadConstantBuffers()
